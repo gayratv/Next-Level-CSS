@@ -1,0 +1,68 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	max-width: 1170px;
+	margin: auto;
+	padding-top: 20px;
+}
+
+.open-modal {
+	display: block;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.modal {
+	opacity: 0;
+	visibility: hidden;
+	transition: all .2s;
+}
+
+.modal:target {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal:target .content {
+	transform: translate(0, 50px);
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0,0,0,.5);
+}
+
+.content {
+	max-width: 500px;
+	margin: auto;
+	padding: 1rem 0;
+	background-color: #fff;
+	border-radius: 2px;
+	position: relative;
+	transform: translate(0, -250px);
+	transition: all .5s;
+}
+
+.modal-header {
+	padding: 1rem;
+	border-bottom: 1px solid #ccc;
+}
+
+.modal-body {
+	padding: 1rem;
+}
+
+.close {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	font-size: 30px;
+	text-decoration: none;
+}
