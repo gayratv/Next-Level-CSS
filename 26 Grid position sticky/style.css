@@ -1,0 +1,57 @@
+/*
+ *  RELEVANT STYLES
+ *  position: sticky; has no effect here
+ *  ---------------------------------------------
+ */
+
+article {
+    display: grid;
+    grid-template-columns: 20em 1fr;
+    grid-gap: 4em;
+    align-items: baseline;
+}
+
+.title {
+    position: sticky;
+    top: 2rem;
+}
+
+/*
+ *  IRRELEVANT STYLES
+ *  ---------------------------------------------
+ */
+
+body {
+    margin: 0;
+    padding: 4em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: #F3E5E2;
+}
+
+a:link, a:visited {
+    border-bottom: 2px solid;
+    font-weight: 700;
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom-color: transparent;
+}
+
+article {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 64em;
+}
+
+.title {
+    margin: 0;
+    font-size: 2.25em;
+    line-height: 1.2;
+    color: #E0464D;
+}
+
+.emoji {
+    font-size: .75em;
+}
