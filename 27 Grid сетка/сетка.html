@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="container">
+
+    <form class="toggle">
+        <input type="checkbox" id="toggle_bg" name="background">
+        <label for="toggle_bg">Show background grid</label>
+    </form>
+
+    <div class="inner">
+        <article class="grid" data-main>
+            <figure class="grid__media">
+                <img src="https://images.unsplash.com/photo-1472491235688-bdc81a63246e?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=17d687b8b0b7e6da5ee22d8f343f09cd" alt="A beautiful siamese cat with blue eyes" width="800px" height="600px" />
+            </figure>
+            <div class="grid__text">
+                <h3>Cats are great</h3>
+                <p>While it is commonly thought that the ancient Egyptians were the first to domesticate cats, the oldest known pet cat was recently found in a 9,500-year-old grave on the Mediterranean island of Cyprus. This grave predates early Egyptian art depicting cats by 4,000 years or more.</p>
+            </div>
+        </article>
+
+        <article class="grid grid--bg" data-bg>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </article>
+    </div>
+</div>
+
+<script src="code.js"></script>
+</body>
+</html>

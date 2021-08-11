@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+* {
+  box-sizing: border-box;
+}
+
+// Basic visual styling
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fcf4f4;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+figure {
+  margin: 0;
+}
+
+h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.6rem;
+  letter-spacing: -0.04em;
+}
+
+p {
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+.inner {
+  position: relative;
+}
+
+// Grid stuff starts here
+.grid {
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: minmax(20px, 1fr) repeat(12, minmax(0, 70px)) minmax(20px, 1fr);
+  grid-gap: 20px;
+  background: linear-gradient(45deg, #5680ad, #f9def3);
+
+  // Hide the main background when we show the background grid
+  &.is-active {
+    background: none;
+
+    .grid__media {
+      box-shadow: none;
+    }
+  }
+}
+
+.grid__media {
+  grid-column: 2 / 9;
+  box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.1);
+}
+
+.grid__text {
+  grid-column: 10 / span 4;
+}
+
+.grid__media,
+.grid__text {
+  grid-row: 1; // We want to keep our items on the same row
+}
+
+// Background grid, for illustration
+.grid--bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: none;
+
+  div {
+    background-color: #26C6DA;
+    opacity: 0.4;
+  }
+}
+
+
+// This stuff is for showing the background grid
+.grid.is-active + .grid {
+  display: grid;
+}
+
+.toggle {
+  padding: 20px;
+}
