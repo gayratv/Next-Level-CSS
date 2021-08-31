@@ -1,0 +1,25 @@
+{
+  "name": "css-html-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ulibka68/CSS-Creative-Hover-Animation-Effects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ulibka68/CSS-Creative-Hover-Animation-Effects/issues"
+  },
+  "homepage": "https://github.com/Ulibka68/CSS-Creative-Hover-Animation-Effects#readme",
+  "devDependencies": {
+    "pug": "^3.0.2"
+  }
+}
