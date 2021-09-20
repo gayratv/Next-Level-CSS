@@ -1,0 +1,57 @@
+<!--
+  ~ Copyright (c) 2021. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background: radial-gradient(#c2c2c2 8%, white 8%);
+            background-size:25px 25px;
+            background-repeat: repeat;
+        }
+
+        .parent {
+            position: relative;
+            width:200px;
+            height:200px;
+            margin-top:200px;
+            background-color:purple;
+        }
+
+        .child {
+            width: 50px;
+            height: 50px;
+            background-color:green;
+            /*
+              Put the child in the
+              top-right corner…
+            */
+            position: absolute;
+            top: 0;
+            left: 50%;
+
+            /*
+              …and then shift it up to
+              sit just outside:
+            */
+            /*     transform: translateY(-100%); */
+            transform: translate(-50%,50%);
+            transform-box: content-box;
+            transform-box: fill-box;
+            transform-box: view-box;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="parent">
+    <div class="child"></div>
+</div>
+</body>
+</html>

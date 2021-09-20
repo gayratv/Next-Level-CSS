@@ -1,0 +1,67 @@
+<!--
+  ~ Copyright (c) 2021. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>transform-combo</title>
+
+    <style>
+        .dashed {
+            --wdth: 100px;
+            width: var(--wdth);
+            height: var(--wdth);
+            border: 3px red dashed;
+            margin: 60px;
+        }
+
+        .solidBox {
+            --wdth: 90px;
+            width: var(--wdth);
+            height: var(--wdth);
+            background-color: rgba(0, 192, 246, 0.5);
+        }
+
+        .solidBoxTransform {
+            transform-origin: center;
+            transform: rotate(45deg) translateX(90px);
+            /*transform: rotate(45deg) ;*/
+        }
+        .solidBoxTransform2 {
+            transform-origin: center;
+            transform: translateX(60px) rotate(45deg);
+        }
+        .solidBoxTransform3 {
+            transform-origin: center;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="dashed">
+    <div class="solidBox "></div>
+</div>
+
+<hr>
+<div class="dashed">
+    <div class="solidBox solidBoxTransform3"></div>
+</div>
+
+<hr>
+
+<div class="dashed">
+    <div class="solidBox solidBoxTransform2"></div>
+</div>
+<hr>
+
+<div class="dashed">
+    <div class="solidBox solidBoxTransform"></div>
+</div>
+
+
+</body>
+</html>

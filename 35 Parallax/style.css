@@ -1,0 +1,38 @@
+
+
+/* perspective between container and .parallax */
+.container {
+    perspective: 10px;
+}
+
+/* Allow .parallax.parallax to have distance from parent element */
+.parallax-with-child {
+    perspective: 15px;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    /* Move closer on z-axis by 1px */
+    transform: translateZ(1px);
+    width: 100vw;
+    overflow: hidden;
+}
+
+.background-one {
+    background-image: url(https://images.pexels.com/photos/2603464/pexels-photo-2603464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+}
+
+.background-two {
+    background-image: url(https://images.pexels.com/photos/2129796/pexels-photo-2129796.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+}
+
+.background-three {
+    background-size: cover;
+    background-image: url(milesmorales.png);
+    /* Move closer on z-axis by 2px */
+    transform: translateZ(2px);
+}
