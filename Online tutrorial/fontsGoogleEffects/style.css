@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@500&display=swap&effect=shadow-multiple|fire-animation|neon|3d-float|anaglyph');
+/*  replace css2 (version 2) to css*/
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+h2
+{
+    font-size: 6em;
+    font-family: 'Poppins', sans-serif;
+}

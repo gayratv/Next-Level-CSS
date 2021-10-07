@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercise</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+        }
+        .product_wrap{
+            display: grid;
+            grid-auto-flow: column;
+            justify-items: center;
+        }
+        .product_item {
+            display: grid;
+            justify-items: center;
+            grid-row-gap: 10px;
+        }
+        .prod_img_1 {
+            height: 150px;
+            display: grid;
+        }
+        .product_price {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .btn_buy {
+            padding: 0;
+            text-decoration: none;
+            border: none;
+            background: rgb(235,63,109);
+            color: rgb(252, 240, 240);
+            border-radius: 20px;
+            width: 110px;
+            height: 30px;
+        }
+        .btn_buy:hover {
+            background: rgb(253, 25, 86);
+            cursor: pointer;
+        }
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.356);
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .popup__open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .popup__content {
+            background-color: white;
+            padding: 20px 20px;
+        }
+        .popup__title {
+            display: grid;
+            grid-auto-flow: column;
+        }
+        .popup__title__name{
+            display: grid;
+            grid-template-columns: max-content minmax(auto, auto);
+        }
+        .popup__close {
+            display: grid;
+            justify-items: end;
+        }
+        .input {
+            grid-auto-flow: row;
+            display: grid;
+        }
+        .btn__form {
+            display: grid;
+            justify-items: end;
+        }
+        .btn-sub {
+            width: 140px;
+        }
+        .no__scroll {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="product_wrap">
+    <div class="product_item">
+        <div class="product_img">
+            <img src="/img/product.jpg" alt="Изображение товара" class="prod_img_1">
+        </div>
+        <div class="product_name" id="product1_name"></div>
+        <div class="product_price" id="product1_price"></div>
+        <div class="buy">
+            <button class="btn_buy" id="btn_buy" data-art="product1">Купить</button>
+        </div>
+    </div>
+    <div class="product_item">
+        <div class="product_img">
+            <img src="/img/product.jpg" alt="Изображение товара" class="prod_img_1">
+        </div>
+        <div class="product_name" id="product2_name"></div>
+        <div class="product_price" id="product2_price"></div>
+        <div class="buy">
+            <button class="btn_buy" id="btn_buy" data-art="product2">Купить</button>
+        </div>
+    </div>
+    <div class="product_item">
+        <div class="product_img">
+            <img src="/img/product.jpg" alt="Изображение товара" class="prod_img_1">
+        </div>
+        <div class="product_name" id="product3_name"></div>
+        <div class="product_price" id="product3_price"></div>
+        <div class="buy">
+            <button class="btn_buy" id="btn_buy" data-art="product3">Купить</button>
+        </div>
+    </div>
+    <div class="product_item">
+        <div class="product_img">
+            <img src="/img/product.jpg" alt="Изображение товара" class="prod_img_1">
+        </div>
+        <div class="product_name" id="product4_name"></div>
+        <div class="product_price" id="product4_price"></div>
+        <div class="buy">
+            <button class="btn_buy" id="btn_buy" data-art="product4">Купить</button>
+        </div>
+    </div>
+</div>
+<div class="popup" id="popup">
+    <div class="popup__content">
+        <div class="popup__title">
+            <div class="popup__title__name">
+                <div class="popup__title__teleicon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="popup__title__text">
+                    Заказать обратный звонок
+                </div>
+            </div>
+            <div class="popup__close">
+                <button class="btn_close_popup" onclick="popup_close()"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <form class="call">
+            <div class="input">
+                <input type="text" placeholder="Ваше Имя">
+                <input type="tel" placeholder="Телефон*" required>
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="popup_product_description" id="popup_product_description"></div>
+            <div class="popup_product_price" id="popup_product_price"></div>
+            <div class="btn__form">
+                <button type="submit" class="btn-sub">Жду звонка</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+  let products =  {
+    "product1" : {
+      name : "Парикмахерское кресло<br>«Норм» гидравлическое",
+      price : '9 900',
+    },
+    "product2" : {
+      name : "Парикмахерское кресло<br>«Норм» гидравлическое",
+      price : '9 900',
+    },
+    "product3" : {
+      name : "Парикмахерское кресло<br>«Норм» гидравлическое",
+      price : '9 900',
+    },
+    "product4" : {
+      name : "Парикмахерское кресло<br>«Норм» гидравлическое",
+      price : '9 900',
+    },
+  }
+
+  document.getElementById('product1_name').innerHTML = products.product1.name;
+  document.getElementById('product1_price').innerHTML = products.product1.price + ' &#8381';
+  document.getElementById('product2_name').innerHTML = products.product2.name;
+  document.getElementById('product2_price').innerHTML = products.product2.price + ' &#8381';
+  document.getElementById('product3_name').innerHTML = products.product3.name;
+  document.getElementById('product3_price').innerHTML = products.product3.price + ' &#8381';
+  document.getElementById('product4_name').innerHTML = products.product4.name;
+  document.getElementById('product4_price').innerHTML = products.product4.price + ' &#8381';
+
+
+  const paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
+  const btn_buy = document.querySelectorAll('.btn_buy');
+
+  for (i=0; i < btn_buy.length; i++) {
+    btn_buy[i].onclick = function() {
+      document.getElementById('popup').classList.add('popup__open');
+      document.body.style = 'overflow: hidden';
+      document.body.style.paddingRight = paddingOffset;
+      document.getElementById('popup').addEventListener("click", function(e){
+        if (!e.target.closest ('.popup__content')){
+          document.getElementById('popup').classList.remove('popup__open');
+          document.body.style.removeProperty('overflow');
+          document.body.style.paddingRight = 0;
+        }
+      })
+    }
+  }
+
+  function popup_close() {
+    document.getElementById('popup').classList.remove('popup__open');
+    document.body.style.removeProperty('overflow');
+    document.body.style.paddingRight = 0;
+  }
+
+
+</script>
+
+<script src="https://kit.fontawesome.com/d233126250.js" crossorigin="anonymous"></script>
+</body>
+</html>

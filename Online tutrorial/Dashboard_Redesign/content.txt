@@ -1,0 +1,38 @@
+<!-- text content -->
+<!-- order detaisl -->
+
+
+
+
+
+
+              <!-- recent customers -->
+              
+							<tr>
+								<td><div class="imgBx"><img src="img2.jpg"></div></td>
+								<td><h4>Muhammad<br><span>India</span></h4></td>
+							</tr>
+							<tr>
+								<td><div class="imgBx"><img src="img3.jpg"></div></td>
+								<td><h4>Amelia<br><span>France</span></h4></td>
+							</tr>
+							<tr>
+								<td><div class="imgBx"><img src="img4.jpg"></div></td>
+								<td><h4>Olivia<br><span>USA</span></h4></td>
+							</tr>
+							<tr>
+								<td><div class="imgBx"><img src="img5.jpg"></div></td>
+								<td><h4>Amit<br><span>Japan</span></h4></td>
+							</tr>
+							<tr>
+								<td><div class="imgBx"><img src="img6.jpg"></div></td>
+								<td><h4>Ashraf<br><span>India</span></h4></td>
+							</tr>
+							<tr>
+								<td><div class="imgBx"><img src="img7.jpg"></div></td>
+								<td><h4>Diana<br><span>Malaysia</span></h4></td>
+							</tr>
+							<tr>
+								<td><div class="imgBx"><img src="img8.jpg"></div></td>
+								<td><h4>Amit<br><span>India</span></h4></td>
+							</tr>

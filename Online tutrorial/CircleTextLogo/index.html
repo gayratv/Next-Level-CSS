@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animated Circle Text Logo</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="circle">
+		<div class="logo"></div>
+		<div class="text">
+			<p>Muhammad Irshad - Creative UX/UI Designer - </p>
+		</div>
+	</div>
+	<script>
+		const text = document.querySelector(".text p");
+		
+		text.innerHTML = text.innerText.split("").map((letter, i) =>
+		`<span style="transform:rotate(${i * 8.2}deg")>${letter}</span>`
+		)
+		.join("");
+		</script>
+</body>
+</html>
