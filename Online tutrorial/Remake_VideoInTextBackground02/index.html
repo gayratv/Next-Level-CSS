@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Next Level Video and Text Effects</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section class="sec">
+		<video autoplay muted loop>
+			<source src="bg.mp4" type="video/mp4">
+		</video>
+		<h2>Run</h2>
+		<div class="dot"></div>
+	</section>
+	<script>
+
+		//add active class on click 
+		const dot = document.querySelector('.dot');
+		const sec = document.querySelector('.sec');
+		dot.onclick = function(){
+			dot.classList.toggle('active')
+			sec.classList.toggle('active')
+		}
+
+		document.addEventListener("mousemove", function(e){
+			const dot = document.querySelector('.dot');
+			dot.style.left = e.pageX + 'px';
+			dot.style.top = e.pageY + 'px';
+		})
+	</script>
+</body>
+</html>

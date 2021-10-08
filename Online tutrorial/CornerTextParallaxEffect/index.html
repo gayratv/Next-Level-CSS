@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Corner Text Mousemove Parallax</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section>
+		<div class="skew1">
+			<h2 class="layer">Corner Text Parallax Effect</h2>
+		</div>
+		<div class="textBox">
+			<div class="skew2">
+				<h2 class="layer">Corner Text Parallax Effect</h2>
+			</div>
+		</div>
+	</section>
+	<script>
+		document.addEventListener('mousemove', parallaxText);
+		function parallaxText(e){
+			this.querySelectorAll('.layer').forEach(layer => {
+				let x = (window.innerWidth - e.pageX * 2)/2;
+				layer.style.transform = `translateX(${x}px)`;
+			})
+		}
+	</script>
+</body>
+</html>

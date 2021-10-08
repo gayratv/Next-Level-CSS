@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,500');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container
+{
+  position: relative;
+  width: 1280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cards
+{
+  position: relative;
+  width: 300px;
+  min-height: 400px;
+  overflow: hidden;
+  margin: 10px;
+  background: #333;
+  background: linear-gradient(#2196f3 0%, #2196f3 30%, #1d3548 30%, #1d3548 100%);
+  border-radius: 20px;
+}
+.cards .imgBx
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  z-index: 10;
+  border-radius: 20px;
+  overflow: hidden;
+  transform-origin: top;
+}
+.cards:hover .imgBx
+{
+  transform: translateY(30px) scale(0.5);
+}
+.cards .imgBx img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cards .content
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: 0.5s;
+  padding-bottom: 30px;
+  transform: translateY(100%);
+}
+.cards:hover .content
+{
+  transform: translateY(0);
+}
+.cards .content .details
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.cards .content .details h2
+{
+  color: #fff;
+  line-height: 1.2em;
+  font-weight: 500;
+}
+.cards .content .details h2 span
+{
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #03a9f4;
+}
+.sci
+{
+  position: relative;
+  display: flex;
+  margin-top: 5px;
+}
+.sci li 
+{
+  list-style: none;
+  margin: 4px;
+}
+.sci li a 
+{
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #294d69;
+  font-size: 1.5em;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.sci li a:hover 
+{
+  background: #03a9f4;
+  transform: rotate(360deg);
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Responsive Portfolio Landing Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="navigation">
+    <div class="banner">
+      <img src="banner.jpg" class="cover">
+    </div>
+    <div class="navLink">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="sec">
+    <header>
+      <div class="toggle"></div>
+      <a href="#" class="btn">Hire Me</a>
+    </header>
+
+    <div class="imgBx">
+      <img src="girl.jpg" class="cover">
+    </div>
+    <div class="content">
+      <h2>Hi, I am<br><span>Elina Smith</span></h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus eveniet ratione dolores id, eos quaerat cupiditate totam qui aliquam distinctio tenetur sunt quod incidunt quidem similique vel unde sint veritatis.</p>
+      <a href="#" class="btn">Download My CV</a>
+    </div>
+
+    <footer>
+      <ul class="sci">
+        <li><a href="#"><img src="facebook.png"></a></li>
+        <li><a href="#"><img src="twitter.png"></a></li>
+        <li><a href="#"><img src="instagram.png"></a></li>
+      </ul>
+      <p class="copyrightText">©2021 Online Tutorials</p>
+    </footer>
+  </section>
+
+  <script>
+    let menuToggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    let sec = document.querySelector('.sec');
+    menuToggle.onclick = function(){
+      menuToggle.classList.toggle('active');
+      navigation.classList.toggle('active');
+      sec.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

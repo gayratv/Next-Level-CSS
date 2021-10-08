@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment Form UI Design</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="payment">
+		<div class="bg"></div>
+		<div class="card">
+			<img src="chip.png" class="chip">
+			<div class="logo"></div>
+			<h2 class="bankName" contenteditable="true">Bank Name</h2>
+			<form>
+				<div class="inputBox">
+					<span>Card No.</span>
+					<input type="text" placeholder="0123 4567 8901 2345" maxlength="19">
+				</div>
+				<div class="inputBox">
+					<span>Card Holder</span>
+					<input type="text" placeholder="John Doe">
+				</div>
+				<div class="group">
+					<div class="inputBox">
+						<span>Valid Thru</span>
+						<input type="text" placeholder="MM/YY" maxlength="5">
+					</div>
+					<div class="inputBox">
+						<span>CCV</span>
+						<input type="password" placeholder="***" maxlength="4">
+					</div>
+				</div>
+			</form>
+		</div>
+		<button class="btn">Confirm and Pay</button>
+	</div>
+</body>
+</html>
