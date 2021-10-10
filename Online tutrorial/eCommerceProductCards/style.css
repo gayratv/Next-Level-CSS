@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #dcdcdc;
+}
+.container
+{
+  position: relative;
+  width: 1200px;
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+.container .card
+{
+  width: 100%;
+  background: #fff;
+}
+.container .card .imgBx
+{
+  position: relative;
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+}
+.container .card .imgBx img 
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  transform-origin: right;
+}
+.container .card:hover .imgBx img 
+{
+  transform: scale(1.5);
+}
+.action
+{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.action li 
+{
+  position: relative;
+  list-style: none;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+  cursor: pointer;
+  transform: translateX(60px);
+  transition: transform 0.5s;
+}
+.action li:hover
+{
+  background: #ff2020;
+  color: #fff;
+}
+.action li:nth-child(2)
+{
+  transition-delay: 0.15s;
+}
+.action li:nth-child(3)
+{
+  transition-delay: 0.3s;
+}
+.container .card:hover .action li 
+{
+  transform: translateX(0px);
+}
+
+.action li span 
+{
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-20px);
+  white-space: nowrap;
+  padding: 4px 6px;
+  background: #fff;
+  color: #333;
+  font-weight: 500;
+  font-size: 12px;
+  opacity: 0;
+  transition: 0.5s;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.action li:hover span 
+{
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.action li span:before
+{
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+
+.container .card .content
+{
+  padding: 10px;
+}
+.container .card .content .productName h3
+{
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin: 5px 0;
+}
+.container .card .content .price_rating
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .card .content .price_rating h2
+{
+  font-size: 20px;
+  color: #ff2020;
+  font-weight: 500;
+}
+.container .card .content .price_rating .fa
+{
+  color: #ffd513;
+  cursor: pointer;
+}
+.container .card .content .price_rating .fa.grey
+{
+  color: #ccc;
+}

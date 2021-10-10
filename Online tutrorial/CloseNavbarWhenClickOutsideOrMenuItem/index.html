@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Closing Navbar by Clicking Outside and Menu Link</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header id="header">
+		<a href="#" class="logo">Logo</a>
+		<div id="toggle"></div>
+		<div id="navbar">
+			<ul>
+				<li><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#services">Services</a></li>
+				<li><a href="#team">Team</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</header>
+
+	<section id="home"><h2>Home</h2></section>
+	<section id="about"><h2>About</h2></section>
+	<section id="services"><h2>Services</h2></section>
+	<section id="team"><h2>Team</h2></section>
+	<section id="portfolio"><h2>Portfolio</h2></section>
+	<section id="contact"><h2>Contact</h2></section>
+
+	<script>
+		const toggle = document.getElementById('toggle');
+		const navbar = document.getElementById('navbar');
+		const header = document.getElementById('header');
+
+
+		document.onclick = function(e){
+			if(e.target.id !== 'navbar' && e.target.id !== 'header' && e.target.id !== 'toggle'){
+				toggle.classList.remove('active');
+				navbar.classList.remove('active')
+			}
+		}
+
+
+		toggle.onclick = function(){
+			toggle.classList.toggle('active');
+			navbar.classList.toggle('active')
+		}
+	</script>
+</body>
+</html>

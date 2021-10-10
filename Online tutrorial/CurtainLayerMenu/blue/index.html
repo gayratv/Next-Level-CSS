@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Responsive Curtain Layer menu</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <section>
+      <h2>Curtain Layer menu</h2>
+    </section>
+    <div class="toggle"></div>
+    <section class="navigation">
+      <span style="--i:0"></span>
+      <span style="--i:1"></span>
+      <span style="--i:2"></span>
+      <span style="--i:3"></span>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </section>
+    <script>
+      const navigation = document.querySelector('.navigation');
+      document.querySelector('.toggle').onclick = function()
+      {
+        this.classList.toggle('active');
+        navigation.classList.toggle('active');
+      }
+
+    </script>
+  </body>
+</html>

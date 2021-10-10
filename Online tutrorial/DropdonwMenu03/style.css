@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+.navigation
+{
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  width: 250px;
+  height: 50px;
+  overflow: hidden;
+  font-weight: 500;
+  transition: 0.5s;
+  z-index: 1000;
+}
+.navigation.active
+{
+  height: 350px;
+}
+.toggle
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    padding: 5px 20px;
+    font-size: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    color: #fff;
+    background: #2196f3;
+    cursor: pointer;
+}
+.toggle:before
+{
+  content: 'Menu';
+  margin-right: 10px;
+}
+.toggle.active:before
+{
+  content: 'Close';
+  margin-right: 10px;
+}
+span
+{
+  position: relative;
+  width: 20px;
+  height: 50px;  
+}
+span:before
+{
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transition: 0.5s;
+}
+span:after
+{
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transition: 0.5s;
+}
+.toggle.active span:before
+{
+  transform: rotate(225deg);
+  top: 24px;
+}
+.toggle.active span:after
+{
+  transform: rotate(135deg);
+  bottom: 24px;
+}
+ul
+{
+  position: relative;
+  list-style: none;
+  background: #111;
+}
+ul li
+{
+  list-style: none;
+}
+ul li a
+{
+  position: relative;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  height: 50px;
+  color: #fff;
+  font-size: 18px;
+  transition: 1s;
+}
+ul li a:hover
+{
+  transition: 0s;
+  background: #2196f3;
+}
+
+
+section
+{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: #e3f2fd;
+  justify-content: center;
+  align-items: center;
+}
+section h2
+{
+  font-size: 12vw;
+  color: rgba(33,150,243,0.1);
+}
