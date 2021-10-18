@@ -1,0 +1,58 @@
+<!--
+  ~ Copyright (c) 2021. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  let parent = {
+    x: 'parent'
+  };
+
+  let child = {
+    x: 'child',
+    papaX() {
+      return super.x;
+    },
+   /*
+    papaX2: function () {
+      // ошибка вызова super
+      return super.x;
+    },*/
+    __proto__:parent
+  };
+
+  function Child2() {
+    return 'Child2 constructor';
+  };
+
+  Child2.x2='child2'
+  Child2.prototype = parent;
+  Child2.prototype.x1 = 'child2'; // undefined
+  // super дает ошибку
+  /*Child2.prototype.papaX=function () {
+    return super.x;
+  };*/
+
+  // https://source.chromium.org/chromium/v8/v8.git/+/8dd39fe35df127390b0f1de3e236c39cd9222697:src/js/array.js;l=1222
+
+  // Methods were just object properties that contained functions instead of data.
+
+  let c2 = new Child2();
+  console.log('c2.x =',c2.x,c2.x1,c2.x2,parent.x1);
+  parent.x3='x3';
+  console.log(c2.x3);
+
+  console.log(child.papaX()); // undefined
+  // Object.setPrototypeOf(child, parent);
+  console.log(child.papaX()); // 'parent'
+</script>
+
+</body>
+</html>
