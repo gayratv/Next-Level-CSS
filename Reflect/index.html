@@ -1,0 +1,112 @@
+<!--
+  ~ Copyright (c) 2021. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--https://habr.com/ru/company/tuturu/blog/334546/-->
+<script>
+  console.clear();
+  const emptyObj = () =>
+    new Proxy({},
+      {
+        get: (target, key, receiver) => (
+          key == 'toJSON'
+            ? () => target
+            : (
+              Reflect.has(target, key) ||
+              Reflect.set(target, key, emptyObj()),
+                Reflect.get(target, key, receiver)
+            )
+        )
+      }
+    )
+  ;
+  const path = emptyObj();
+  path.to.virtual.node.in.empty.object = 123;
+
+  console.log(JSON.stringify(path));
+  // {"to":{"virtual":{"node":{"in":{"empty":{"object":123}}}}}}
+</script>
+
+<script>
+  let user = {
+    _name: "Гость",
+    get name() {
+      return this._name;
+    },
+    get guest() {
+      return 'guest';
+    }
+  };
+
+  let userProxy = new Proxy(user, {
+    get(target, prop, receiver) {
+      console.log('target : ', target);
+      // console.log('receiver :',receiver);
+      return target[prop]; // (*) target = user
+    }
+  });
+
+  let admin = {
+    __proto__: userProxy,
+    _name: "Админ"
+  };
+
+  // Ожидается: Админ
+  console.log(admin.name); // выводится Гость (?!?)
+</script>
+
+<script>
+  <!--  https://learn.javascript.ru/proxy -->
+    console.log('**** new Proxy(map, *********');
+  let map = new Map();
+
+  let proxy = new Proxy(map, {
+    get(target, prop, receiver) {
+      console.log(arguments);
+      // let value = Reflect.get(...arguments);
+      let value = Reflect.get(target, prop, receiver);
+      console.log('value ', value);
+      return typeof value == 'function' ? value.bind(target) : value;
+    }
+  });
+
+  proxy.set('test', 1);
+  proxy.set('bb', 2);
+  // console.log(proxy.get('test')); // 1 (работает!)
+</script>
+
+<script>
+  console.log('********* Задача1');
+  let user11 = {
+    name: "John"
+  };
+
+  function wrap(target) {
+    return new Proxy(target, {
+      get(target, prop, receiver) {
+        // return Reflect.has(target, prop) ? Reflect.get(...arguments) : console.log('Нет свойства ',prop);
+        if (Reflect.has(target, prop)) {
+          return Reflect.get(...arguments);
+        } else {
+          throw  new ReferenceError('no prop');
+        }
+      }
+      /* ваш код */
+    });
+  }
+
+  user11 = wrap(user11);
+
+  console.log(user11.name); // John
+  console.log(user11.age); // Ошибка: такого свойства не существует
+</script>
+
+</body>
+</html>
