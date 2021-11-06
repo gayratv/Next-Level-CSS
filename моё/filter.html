@@ -1,0 +1,38 @@
+<!--
+  ~ Copyright (c) 2021. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+
+    <style>
+        .svg-container {
+            height:200px;
+            width: 135px;
+        }
+    </style>
+</head>
+<body>
+
+<img src="airam-dato-on-uvtTGlsOtBw-unsplash.jpg" alt="" height="200px">
+
+<img style="filter:blur(2px)"
+        src="airam-dato-on-uvtTGlsOtBw-unsplash.jpg" alt="" height="200px">
+
+
+<div class="svg-container" >
+    <svg id="img3" viewBox="0 0 135 200">
+        <filter id="svgBlur" x="-5%" y="-5%" width="110%" height="110%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur>
+        </filter>
+        <image xlink:href="airam-dato-on-uvtTGlsOtBw-unsplash.jpg" filter="url(#svgBlur)" x="0" y="0" width="135px"
+               height="200px"></image>
+    </svg>
+
+</div>
+
+</body>
+</html>
