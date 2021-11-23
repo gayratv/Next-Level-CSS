@@ -1,0 +1,33 @@
+/*!
+ * Copyright (c) 2021. Write by Gayrat
+ */
+
+//@mixin border-radius
+
+//@mixin box-shadow(0 0 5px rgba(0,0,0,.2)
+@mixin box-shadow($shadows...) {
+  box-shadow: $shadows;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin transition($tr_time...) {
+  transition: $tr_time;
+}
+
+@mixin scale($scale) {
+  scale: $scale;
+}
+
+// filter-gradient(#ffffff, #ffffff, horizontal);
+@mixin filter-gradient($args...) {};
+
+@mixin background-image($param) {
+  background-image: $param;
+};
+
+@mixin translateX($x) {
+  transform:  translateX( $x);
+}
