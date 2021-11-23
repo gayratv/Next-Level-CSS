@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Modern Animated Menu Toggle</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="toggle">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<script>
+		let menuToggle = document.querySelector('.toggle');
+		menuToggle.onclick = function(){
+			menuToggle.classList.toggle('active')
+		}
+	</script>
+</body>
+</html>
+
