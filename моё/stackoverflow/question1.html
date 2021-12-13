@@ -1,0 +1,53 @@
+<!--
+  ~ Copyright (c) 2021. Write by Gayrat
+  https://ru.stackoverflow.com/questions/1357299/%d0%9a%d0%b0%d0%ba-%d1%81%d0%b4%d0%b5%d0%bb%d0%b0%d1%82%d1%8c-%d1%82%d0%b0%d0%ba-%d1%87%d1%82%d0%be%d0%b1%d1%8b-%d0%bf%d1%80%d0%b8-%d0%bd%d0%b0%d0%b2%d0%b5%d0%b4%d0%b5%d0%bd%d0%b8%d0%b8-%d0%bd%d0%b0-%d0%9f%d0%be%d0%b4%d0%bf%d1%83%d0%bd%d0%ba%d1%82-2-1-%d0%bf%d0%be%d0%b4%d1%81%d0%b2%d0%b5%d1%87%d0%b8%d0%b2%d0%b0%d0%bb%d1%81%d1%8f-%d0%b5%d1%89%d0%b5-%d0%9f%d1%83%d0%bd%d0%ba%d1%82-2-%d0%b2
+   как можно сделать с помощью css, чтоб при наведении на Подпункт 2.1 подсвечивался еще Пункт 2?
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul > li > a:hover {
+            color: red;
+        }
+
+        .news__picture {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="">Пункт 1.</a></li>
+    <li><a href="">Пункт 2.</a>
+        <ul>
+            <li><a href="">Подпункт 2.1.</a></li>
+            <li><a href="">Подпункт 2.2.</a></li>
+            <li><a href="">Подпункт 2.3.</a></li>
+        </ul>
+    </li>
+    <li><a href="">Пункт 3.</a></li>
+</ul>
+
+<style>
+    .news:has(.news__lead) {
+        background-color: lightgreen;
+    }
+
+    /*
+    .news {
+        background-color: lightgreen;
+    }
+    */
+</style>
+<article class="news">
+    <h3 class="news__title">В&nbsp;Харькове котята подкараулили хозяина за&nbsp;дверью. А&nbsp;потом навалились на&nbsp;него все разом</h3>
+    <img class="news__picture" src="https://www.filmibeat.com/ph-big/2021/03/bhavana_16154521982.jpg" alt="">
+    <p class="news__lead">В&nbsp;Харькове прошел дождь из&nbsp;котят: рыжих, черных и&nbsp;черно-белых. Малыши прятались в&nbsp;комнате, поэтому когда хозяин (или человек, взявший&nbsp;их на&nbsp;передержку) открыл дверь, на&nbsp;него с&nbsp;мяуканьем вывалился с&nbsp;десяток котят одновременно.</p>
+</article>
+
+</body>
+</html>

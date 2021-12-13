@@ -1,0 +1,307 @@
+$container-max-width: 720px;
+$grid-gutter-width: 30px;
+
+@mixin make-container() {
+  width: 100%;
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container {
+  max-width: $container-max-width;
+  @include make-container();
+  background-color: white;
+}
+
+
+/*-------------------------*/
+:root {
+  --register: #ee9ca7;
+  --register--weak: rgba(238, 156, 167, .25);
+  --login: #a7bfe8;
+  --login--weak: rgba(167, 191, 232, .25);
+  --grad: linear-gradient(to right, #ffdde1, #ee9ca7, #a7bfe8, #6190e8);
+  --font-family: 'Josefin Sans', sans-serif;
+
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  min-height: 35rem;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transform: translate(-50%, -50%);
+  transition: all .3s .1s ease-out;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+
+}
+
+.card.is-show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+
+}
+.shadow {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.card-wrap {
+  position: relative;
+  margin: 0 auto;
+  max-width: 450px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-body p {
+  font-size: 1.1rem;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.badge-wrap {
+  display: flex;
+  justify-content: center;
+
+  a.badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 .2rem;
+    padding: 0;
+    opacity: .7;
+    border-radius: 50%;
+    transition: opacity .3s ease-in;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+      color: #fff;
+    }
+  }
+}
+
+.btn {
+  color: #fff !important;
+  width: 10em;
+  transition: all .4s;
+  border-radius: 20px;
+  border: 2px solid transparent;
+}
+
+.btn.btn-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border: 0;
+
+  &:hover {
+    border: 0 !important;
+  }
+}
+
+.form-control {
+  font-family: 'Handle', cursive;
+
+  &::placeholder {
+    font-family: var(--font-family);
+    letter-spacing: .1em;
+    font-size: .9rem;
+  }
+}
+
+
+/* -∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-
+  State
+-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-*/
+
+/* Welcome
+---------------------------------------*/
+.card--welcome {
+  z-index: 3;
+
+  .card-title {
+    color: var(--register);
+  }
+
+  .btn-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn {
+    color: #fff;
+    transition: all .3s;
+
+    &:hover {
+      background-color: var(--register--weak);
+      font-weight: bold;
+    }
+  }
+
+  .btn-register {
+    margin-bottom: .8em;
+    background-color: var(--register);
+
+    &:hover {
+      color: var(--register);
+    }
+  }
+
+  .btn-login {
+    background-color: var(--login);
+  }
+}
+
+/* Register
+---------------------------------------*/
+.card--register {
+  .card-title {
+    color: var(--register);
+  }
+
+  .badge {
+    background-color: var(--register);
+  }
+
+  .btn {
+    background-color: var(--register);
+
+    &:hover {
+      background-color: #fff;
+      color: var(--register) !important;
+      font-weight: bold;
+      border: 2px solid var(--register--weak);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--register--weak);
+    }
+  }
+
+  .form-control {
+    color: var(--register);
+    border-color: var(--register--weak);
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--register--weak);
+    }
+  }
+}
+
+/* Login
+---------------------------------------*/
+.card--login {
+  .card-title {
+    color: var(--login);
+  }
+
+  .badge {
+    background-color: var(--login);
+  }
+
+  .btn {
+    background-color: var(--login);
+
+    &:hover {
+      background-color: #fff;
+      color: var(--login) !important;
+      font-weight: bold;
+      border: 2px solid var(--login--weak);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--login--weak);
+    }
+  }
+
+  .form-control {
+    color: var(--login);
+    border-color: var(--login--weak);
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--login--weak);
+    }
+  }
+}
+
+
+/* -∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-
+  Animation
+-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-∵-∴-*/
+body {
+  background: var(--grad);
+  background-size: 500% 500%;
+  transition: background 3s ease;
+  background-position: 50% 50%;
+
+  &.is-register {
+    background-position: 0% 50%;
+  }
+
+  &.is-login {
+    background-position: 100% 50%;
+  }
+}
+
+.card {
+  transition: all .3s .1s ease-out;
+
+  &:not(.is-show) {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotateX(95deg);
+  }
+
+  &.is-show {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+}
+.btn-group-lg>.btn, .btn-lg {
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: .3rem;
+}
