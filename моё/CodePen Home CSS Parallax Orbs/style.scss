@@ -1,0 +1,147 @@
+/*!
+ * Copyright (c) 2021. Write by Gayrat
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
+*{
+  box-sizing:border-box
+}
+body{
+  font-family: 'Nunito', sans-serif;
+  .page{
+    margin:0 auto;
+    width:920px;
+  }
+  .content{
+    width:33.33%;
+    display:inline-block;
+    margin:0 auto;
+    position:relative;
+    height:100vh;
+    max-width:300px;
+  }
+  %layer{
+    width:600px;
+    height:200px;
+    transition:all .4s;
+    position:absolute;
+    top:0;
+    left:-200px;
+    img{
+      width:100%;
+      position:absolute;
+      bottom:0;
+    }
+  }
+  .circle{
+    position:absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    top:50%;
+    width:200px;
+    transform:translateY(-50%);
+    transition:all .5s;
+    cursor:pointer;
+    &:hover .circle_shine{
+      top: 330px;
+      left: -200px;
+    }
+    &_shine{
+      background: white;
+      width: 600px;
+      transition:.3s;
+      height: 200px;
+      opacity: 0.2;
+      top: -10px;
+      left: -90px;
+      transform: rotate(45deg);
+      position: absolute;
+      z-index: 2;
+    }
+    &:hover h2, &:hover h3{
+      opacity:1;
+      top:-36px
+    }
+
+    &:hover .content_shadow{
+      transform:scale(1.1);
+      top:-22px;
+    }
+    &:hover h3{
+      transition:all .2s .04s;
+    }
+    &:hover h2{
+      transition:all .2s;
+    }
+    .circle_inner__layer:nth-of-type(1){
+      top:0px;
+      left:0px;
+    }
+    .circle_inner__layer:nth-of-type(2){
+      top:0px;
+      left:-210px;
+    }
+    .circle_inner__layer:nth-of-type(3){
+      top:0px;
+      left:-440px;
+    }
+    &_title{
+      text-align:center;
+      h2,h3{
+        opacity:0;
+        color:#4A7479;
+        margin:0;
+        transition:all .2s .04s;
+        position:relative;
+        top:-10px;
+      }
+      h3{
+        transition:all .2s;
+        color: #B0D5D6;
+        font-size:15px;
+      }
+    }
+    &_inner{
+      border-radius:200px;
+      background: #B0D5D6;
+      overflow:hidden;
+      margin: auto;
+      width:200px;
+      z-index:1;
+      transition:all .3s;
+      height:200px;
+      position:relative;
+      &:hover{
+        transform:scale(1.1);
+        //border: 7px solid #F8F8F8;
+      }
+
+      &:hover .circle_inner__layer:nth-of-type(1){
+        left:-80px;
+        transition:all 4s linear;
+      }
+      &:hover .circle_inner__layer:nth-of-type(2){
+        left:-400px;
+        transition:all 4s linear;
+      }
+      &:hover .circle_inner__layer:nth-of-type(3){
+        left:-140px;
+        transition:all 4s linear;
+      }
+      &__layer{
+        @extend %layer;
+      }
+    }
+  }
+  .content_shadow{
+    width: 200px;
+    box-shadow: 0px 31px 19px -2px #E0E8F9;
+    height: 20px;
+    border-radius: 70%;
+    position: relative;
+    top: -44px;
+    transition:all .3s;
+    z-index: 0;
+  }
+}
