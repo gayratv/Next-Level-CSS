@@ -1,34 +1,49 @@
-<!--
-  ~ Copyright (c) 2021. Write by Gayrat
-  -->
-
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .container {
-            display: block;
-            background-color: #90ff00;
-            overflow:visible;
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>TEST</title>
+    <style >
+        .focused {
+            outline: solid 2px red;
         }
-        .child {
-            position: relative;
-            top:20px;
-            bottom: 20px;
-            background-color: #00c0f6;
-            width: 200px;
-        }
+
     </style>
 </head>
 <body>
+<form id="formElement" class="focused">
+    One: <input type="text" /><br /><br />
+    Two: <input type="text" />
+</form>
 
-<div class="container">
-    <div class="child">
-        sddd
-    </div>
-</div>
 
+<script >
+  var formElement = document.forms["formElement"];
+
+  formElement.addEventListener("focusin",()=> {
+    console.log("focusin");
+  });
+
+  formElement.addEventListener("focus",()=> {
+    console.log("focus");
+  });
+
+  /*
+    formElement.onfocus = function () {
+      if (this.classList.contains('focused')) {
+        this.classList.remove('focused');
+      }
+    };
+  */
+
+  formElement.onblur = function () {
+    if (!formElement.value.includes(' ')) {
+      input.classList.add('focused');
+
+    }
+  };
+
+</script>
 </body>
 </html>
