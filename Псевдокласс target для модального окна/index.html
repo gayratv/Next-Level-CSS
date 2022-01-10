@@ -1,78 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-	<div class="container">
-		
-		<a href="#modal" class="open-modal">Open modal</a>
+<div class="container">
 
-		<div class="modal" id="modal">
-			<div class="overlay">
-				<div class="content">
-					<div class="modal-header">
-						<h3>Title</h3>
-					</div>
-					<div class="modal-body">
-						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam aperiam, tempore repellendus officia sunt quae eum dolorum vel corrupti, qui ut accusamus at consequatur, consequuntur ipsam blanditiis voluptate obcaecati repudiandae.</p>
-					</div>
-					<a href="#" class="close" onClick="removehash()">&times;</a>
-				</div>
-			</div>
-		</div>
+    <a href="#modal" class="open-modal">Open modal</a>
 
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nulla deserunt mollitia fugit blanditiis omnis nostrum amet maxime illum repellendus modi sapiente, earum nisi error? Tempore, inventore. Quam consectetur aspernatur hic at vitae nesciunt, maiores excepturi aliquid corporis dignissimos illum laudantium ipsum rem odit sit. Voluptate ab repellendus consequuntur reprehenderit.</p>
+    <div class="modal" id="modal">
+        <div class="overlay">
+            <div class="content">
+                <div class="modal-header">
+                    <h3>Title modal 1</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam aperiam, tempore repellendus
+                        officia sunt quae eum dolorum vel corrupti, qui ut accusamus at consequatur, consequuntur ipsam
+                        blanditiis voluptate obcaecati repudiandae.</p>
+                </div>
+                <a href="#" class="close" onClick="removehash()">&times;</a>
+            </div>
+        </div>
+    </div>
 
-		<a href="#modal2" class="open-modal">Open modal 2</a>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nulla deserunt mollitia fugit blanditiis omnis
+        nostrum amet maxime illum repellendus modi sapiente, earum nisi error? Tempore, inventore. Quam consectetur
+        aspernatur hic at vitae nesciunt, maiores excepturi aliquid corporis dignissimos illum laudantium ipsum rem odit
+        sit. Voluptate ab repellendus consequuntur reprehenderit.</p>
 
-		<div class="modal" id="modal2">
-			<div class="overlay">
-				<div class="content">
-					<div class="modal-header">
-						<h3>Title 2</h3>
-					</div>
-					<div class="modal-body">
-						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam aperiam, tempore repellendus officia sunt quae eum dolorum vel corrupti, qui ut accusamus at consequatur, consequuntur ipsam blanditiis voluptate obcaecati repudiandae.</p>
-					</div>
-					<a href="#" class="close" onClick="removehash()">&times;</a>
-				</div>
-			</div>
-		</div>
+    <a href="#modal2" class="open-modal">Open modal 2</a>
 
-	</div>
+    <div class="modal" id="modal2">
+        <div class="overlay">
+            <div class="content">
+                <div class="modal-header">
+                    <h3>Title 2</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam aperiam, tempore repellendus
+                        officia sunt quae eum dolorum vel corrupti, qui ut accusamus at consequatur, consequuntur ipsam
+                        blanditiis voluptate obcaecati repudiandae.</p>
+                </div>
+                <a href="#" class="close" onClick="removehash()">&times;</a>
+            </div>
+        </div>
+    </div>
 
-
-	<script>
-		function removehash(){
-			setTimeout(function(){
-				history.replaceState("", document.title, window.location.pathname);
-			}, 1);
-		}
-	</script>
+</div>
 
 
-	<!-- 
-		https://developer.mozilla.org/ru/docs/Web/CSS/:target
-		https://stackoverflow.com/questions/54080391/remove-hash-from-url-without-refreshing/54080558
-	-->
+<script>
+  function removehash() {
+    setTimeout(function () {
+      history.replaceState("", document.title, window.location.pathname);
+    }, 1);
+  }
+</script>
 
 
-	<!-- <a href="#test">Test link</a>
-	<div id="test">Lorem ipsum dolor sit, amet.</div>
+<!--
+    https://developer.mozilla.org/ru/docs/Web/CSS/:target
+    https://stackoverflow.com/questions/54080391/remove-hash-from-url-without-refreshing/54080558
+-->
 
-	<style>
-		#test {
-			margin-top: 20px;
-		}
-		:target {
-			border: 1px solid red;
-		}
-	</style> -->
+
+<!-- <a href="#test">Test link</a>
+<div id="test">Lorem ipsum dolor sit, amet.</div>
+
+<style>
+    #test {
+        margin-top: 20px;
+    }
+    :target {
+        border: 1px solid red;
+    }
+</style> -->
 
 
 </body>
