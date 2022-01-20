@@ -1,0 +1,32 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>functionCall</title>
+</head>
+<body>
+
+<script>
+  export function useState<S>(
+    initialState: (() => S) | S,
+  ): [S, Dispatch<BasicStateAction<S>>] {
+    const dispatcher = resolveDispatcher();
+    return dispatcher.useState(initialState);
+  }
+
+
+  const useInput = (initialValue) => {
+    const [value, setValue] = useState(initialValue);
+    const onChange = (a) => {
+        setValue(a);
+    };
+    return { value, onChange };
+  };
+</script>
+
+</body>
+</html>
