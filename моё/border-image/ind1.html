@@ -1,0 +1,54 @@
+<!--
+  https://codepen.io/SelenIT/pen/VwMOjrp
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            /* border-image CSS property draws an image around a given element. It replaces the element's regular border. */
+            /* This property is a shorthand for the following CSS properties:
+                border-image-outset
+                border-image-repeat
+                border-image-slice
+                border-image-source
+                border-image-width
+            */
+
+            /*
+                <'border-image-source'> || <'border-image-slice'>
+                [ / <'border-image-width'> | / <'border-image-width'>? / <'border-image-outset'> ]? || <'border-image-repeat'>*/
+            /*border-image: radial-gradient(#6592CF 64px, #243D83 0) 254 fill
+            / 200px
+            / 0px 0;*/
+
+            /* border-image-outset: top right bottom left */
+            border-image-outset: 0;
+            border-image-repeat :repeat;
+            border-image-slice: 254;
+            border-image-source:  radial-gradient(#6592CF 64px, #243D83 0);
+            border-image-width: 200px;
+        }
+
+
+        /* basic setting — emulate CSSBattle playground */
+        .container {
+            width: 400px;
+            height: 300px;
+            margin: calc(50vh - 150px) calc(50vw - 200px);
+            outline: 3px dashed red;
+            /* offset-x | offset-y | blur-radius | spread-radius | color */
+            box-shadow: 0 0 0 max(50vw,50vh) rgb(98, 149, 44);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container"></div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!--
+ https://css-live.ru/articles-css/understanding-border-image.html
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        :root {
+            --border: 75px;
+        }
+
+        .div1 {
+            width:500px;
+            height:500px;
+            border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' style='background: radial-gradient%28 transparent 10%25, crimson, gold, teal, transparent 70%25%29, radial-gradient%28 transparent 40%25, crimson, gold, teal, transparent 70%25%29, linear-gradient%28aliceblue,blue%29;background-position:50vw 50vh, center, center;background-size:100%' %3E%3C/svg%3E") 47% fill / var(--border)  repeat;
+            /*min-height: 100vh;*/
+            box-sizing: border-box;
+            border-image-width: auto;
+            padding: var( --border);
+        }
+
+        code {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="div1">
+
+</div>
+
+<svg>
+    version="1.1"
+    <title>My first SVG file</title>
+    <desc>
+        Red and yellow rectangles.
+        The yellow rectangle has a blue frame.
+    </desc>
+    <style >
+        .firstb { fill: yellow; }
+        .secondb { fill: red; }
+        /*background: radial-gradient(#e66465, #9198e5);*/
+    </style>
+    <defs>
+        <style type="text/css">
+        #rect1 { fill: url(#Gradient1); }
+        .stop1 { stop-color: red; }
+        .stop2 { stop-color: black; stop-opacity: 0; }
+        .stop3 { stop-color: blue; }
+        </style>
+    </defs>
+
+    width='200'
+    height='200'
+    viewBox="0 0 200 200"
+    <text x="80" y="50" font-size="30">My SVG</text>
+    <path class="secondb" d="M42 27v-20c0-3.7-3.3-7-7-7s-7 3.3-7 7v21l12 15-7 15.7c14.5 13.9 35 2.8 35-13.7 0-13.3-13.4-21.8-26-18zm6 25c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7z"/>
+    <path class="firstb" d="M14 27v-20c0-3.7-3.3-7-7-7s-7 3.3-7 7v41c0 8.2 9.2 17 20 17s20-9.2 20-20c0-13.3-13.4-21.8-26-18zm6 25c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7z"/>
+</svg>
+
+Градиент в <code>border-image</code> может быть только один. Но если очень хочется..:)
+
+<svg width="120" height="240" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="Gradient1">
+            <stop class="stop1" offset="0%"/>
+            <stop class="stop2" offset="50%"/>
+            <stop class="stop3" offset="100%"/>
+        </linearGradient>
+        <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="red"/>
+            <stop offset="50%" stop-color="black" stop-opacity="0"/>
+            <stop offset="100%" stop-color="blue"/>
+        </linearGradient>
+        <style >
+        #rect1 { fill: url(#Gradient1); }
+        .stop1 { stop-color: red; }
+        .stop2 { stop-color: black; stop-opacity: 0; }
+        .stop3 { stop-color: blue; }
+        </style>
+    </defs>
+
+    <rect id="rect1" x="10" y="10" rx="15" ry="15" width="100" height="100"/>
+    <rect x="10" y="120" rx="15" ry="15" width="100" height="100" fill="url(#Gradient2)"/>
+
+</svg>
+
+</body>
+</html>
+
+<!--
+ style="background: radial-gradient transparent 10, crimson, gold, teal, transparent .25,
+    radial-gradient transparent .25, crimson, gold, teal, transparent .25,
+    linear-gradient aliceblue,blue;
+    background-position:50vw 50vh, center, center;
+    background-size:100%  47% fill / var(--border)  repeat;"
+-->
