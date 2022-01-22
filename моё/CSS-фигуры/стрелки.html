@@ -1,0 +1,51 @@
+<!--
+  http://css.yoksel.ru/strelki-s-pomoshh-yu-svojstva-border/
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS-фигуры</title>
+    <style>
+        DIV {
+            width: 0;
+            height: 0;
+            border: 40px solid transparent;
+        }
+        .arrow-top {
+            border-top-color: orangered;
+            border-bottom: 0;
+        }
+        .arrow-right {
+            border-right-color: gold;
+            border-left: 0;
+        }
+        .arrow-bottom {
+            border-bottom-color: yellowgreen;
+            border-top: 0;
+        }
+        .arrow-left {
+            border-left-color: steelblue;
+            border-right: 0;
+        }
+
+        /* Helpers */
+        BODY {
+            background: white;
+        }
+        DIV {
+            display: inline-block;
+            margin: 30px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="arrow-top"></div>
+<div class="arrow-right"></div>
+<div class="arrow-bottom"></div>
+<div class="arrow-left"></div>
+
+</body>
+</html>
