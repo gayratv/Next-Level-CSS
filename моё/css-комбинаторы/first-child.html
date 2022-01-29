@@ -1,0 +1,37 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>first child</title>
+
+    <style>
+        ul li {
+            color: blue;
+        }
+
+        ul li:first-child {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- :first-child находит любой элемент, являющийся первым в своём родителе. -->
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3
+        <ul>
+            <li>Item 3.1</li>
+            <li>Item 3.2</li>
+            <li>Item 3.3</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

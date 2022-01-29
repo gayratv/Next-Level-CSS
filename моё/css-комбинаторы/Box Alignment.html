@@ -1,0 +1,110 @@
+<!--
+  https://css-tricks.com/solved-with-css-logical-styling-based-on-the-number-of-given-elements/
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Box Alignment</title>
+    <style>
+
+        body {
+            font-family: monospace;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap:1rem;
+            position: relative;
+            max-width:800px;
+            padding-inline-start:0;
+
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 1rem;
+            text-align: center;
+        }
+
+        li {
+            flex: 1;
+        }
+
+        .box {
+            border: 1px solid #9e8fdd;
+            background: #f0edff;
+            text-align: center;
+            /*margin: 0 1rem;*/
+            padding: 4rem ;
+        }
+
+        .arrow {
+            border: none;
+            display: none;
+        }
+
+        /* 3 or more items display to the left and with more margin,
+        except the first item*/
+        li:first-child:nth-last-child(n + 3) ~ li {
+            /*margin-left: 2rem;*/
+        }
+
+        /* add a scroll indicator pseudo element, absolutely positioned */
+        li:first-child:nth-last-child(n + 4) ~ .arrow {
+            display: block;
+            position: sticky;
+            height: 1.5rem;
+            min-width: 3rem;
+            top: 0;
+            right: 0;
+            background: lime
+        }
+
+    </style>
+</head>
+<body>
+<h2>Fewer than 3 items? Center it!</h2>
+<ul>
+    <li>
+        <div class="box">1</div>
+    </li>
+    <li>
+        <div class="box">2</div>
+    </li>
+    <li>
+        <div class="box">3</div>
+    </li>
+    <button class="arrow">——></button>
+</ul>
+
+<h2>More than 3 items? Carousel it!</h2>
+<ul>
+    <li>
+        <div class="box">1</div>
+    </li>
+    <li>
+        <div class="box">2</div>
+    </li>
+    <li>
+        <div class="box">3</div>
+    </li>
+    <li>
+        <div class="box">4</div>
+    </li>
+    <li>
+        <div class="box">5</div>
+    </li>
+    <li>
+        <div class="box">6</div>
+    </li>
+    <button class="arrow">——></button>
+</ul>
+
+</body>
+</html>

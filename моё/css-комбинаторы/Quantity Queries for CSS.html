@@ -1,0 +1,161 @@
+<!--
+  https://alistapart.com/article/quantity-queries-for-css/
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantity Queries for CSS</title>
+    <style>
+        .container1  li:only-of-type {
+            background-color: lime;
+        }
+
+        /* "More than one" results */
+        /* li:not(:only-of-type) {
+             background-color:blue;
+         }*/
+
+        /* ровно 3 шт */
+        .container1  li:nth-last-child(3):first-child,
+        .container1  li:nth-last-child(3):first-child ~ li {
+            background-color: blue;
+        }
+
+
+        /*More than or equal to 5*/
+        .container1  li:nth-last-child(n+5),
+        .container1  li:nth-last-child(n+5) ~ li {
+            background-color: #0fbcf9;
+        }
+
+        /*меньше or equal to 3*/
+        /* также можно использовать nth-of-type */
+        .container2  li:first-child:nth-last-child(-n+3),
+        .container2  li:first-child:nth-last-child(-n+3) ~ li
+        {
+            background-color: #00ec00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container1">
+    <h1>CONTAINER1</h1>
+    <ul>
+        One Item
+        <li>Item 1</li>
+    </ul>
+
+    <br>
+
+    <ul>
+        Two Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+
+    <br>
+
+    <ul>
+        three Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <br>
+
+    <ul>
+        four Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+    <br>
+
+    <ul>
+        five Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <br>
+
+    <ul>
+        six Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+    </ul>
+</div>
+
+<div class="container2">
+    <h1>CONTAINER2</h1>
+
+
+    <ul>
+        One Item
+        <li>Item 1</li>
+    </ul>
+
+    <br>
+
+    <ul>
+        Two Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+
+    <br>
+
+    <ul>
+        three Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <br>
+
+    <ul>
+        four Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+    <br>
+
+    <ul>
+        five Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <br>
+
+    <ul>
+        six Item
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+    </ul>
+</div>
+
+</body>
+</html>

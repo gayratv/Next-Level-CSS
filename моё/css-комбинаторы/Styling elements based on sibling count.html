@@ -1,0 +1,75 @@
+<!--
+  https://lea.verou.me/2011/01/styling-children-based-on-their-number-with-css3/
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Styling elements based on sibling count</title>
+    <style>
+        /* one item */
+        li:nth-child(1):nth-last-child(1) {
+            background-color:lime;
+        }
+
+        /* two items */
+        li:nth-child(1):nth-last-child(2),
+        li:nth-child(2):nth-last-child(1) {
+            background-color:yellow;
+        }
+
+        /* three items */
+        li:nth-child(1):nth-last-child(3),
+        li:nth-child(2):nth-last-child(2),
+        li:nth-child(3):nth-last-child(1) {
+            background-color: #0d948b;
+        }
+
+        /* four items */
+        li:nth-child(1):nth-last-child(4),
+        /*li:nth-child(2):nth-last-child(3),*/
+        li:nth-child(3):nth-last-child(2),
+        li:nth-child(4):nth-last-child(1) {
+            background-color: #0fbcf9;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    One Item
+    <li>Item 1</li>
+</ul>
+
+<br>
+
+<ul>
+    Two Item
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+
+<br>
+
+<ul>
+    three Item
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+<br>
+
+<ul>
+    four Item
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+</ul>
+
+
+
+</body>
+</html>

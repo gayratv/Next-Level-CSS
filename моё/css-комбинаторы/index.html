@@ -1,0 +1,92 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  https://css-tricks.com/solved-with-css-logical-styling-based-on-the-number-of-given-elements/
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>комбинаторы</title>
+    <style>
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: #ff2c74;
+            color: #fff;
+
+            border-radius: 50%;
+            font-size: 1.15rem;
+            box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+            inset 2px 2px 5px rgba(255, 255, 255, 0.25),
+            inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon-blue {
+            background-color: blue;
+        }
+
+        .container {
+            display: flex;
+            gap:5px;
+            align-items: center;
+        }
+
+        .number {
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            background-color: yellow;
+        }
+
+        .number:first-child {
+            background-color:blue;
+        }
+
+        /*.number:first-child ~ * {
+            background-color:lime;
+        }*/
+
+        .number:first-child:nth-last-child(n + 5) ~ .number {
+            background-color:lime;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--
+<ion-icon class="icon" name="arrow-forward-circle-outline"></ion-icon>
+<ion-icon  class="icon"  name="person-add-outline"></ion-icon>
+<ion-icon class="icon icon-blue"  name="person-remove-outline"></ion-icon>
+<ion-icon class="icon"  name="person-circle-outline"></ion-icon>
+<ion-icon class="icon icon-blue"  name="person-circle-outline"></ion-icon>
+-->
+
+<div class="container">
+    <span class="number">1</span>
+    <span class="number">2</span>
+    <span class="number">3</span>
+    <span class="number">4</span>
+    <span class="number">5</span>
+    <span class="number">6</span>
+    <span class="number">7</span>
+</div>
+<!--
+
+<div class="container">
+    <div><ion-icon class="icon" name="person-circle-outline"></ion-icon></div>
+    <ion-icon class="icon" name="person-circle-outline"></ion-icon>
+    <ion-icon class="icon" name="person-circle-outline"></ion-icon>
+    <ion-icon class="icon" name="person-circle-outline"></ion-icon>
+    <ion-icon class="icon" name="person-circle-outline"></ion-icon>
+    <ion-icon class="icon" name="person-circle-outline"></ion-icon>
+    <ion-icon class="icon" name="person-circle-outline"></ion-icon>
+</div>
+
+-->
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
