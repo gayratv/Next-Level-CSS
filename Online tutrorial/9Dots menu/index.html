@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>9 Dots & Icon Hover Effects</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="navigation">
+		<span style="--x:-1;--y:0;--i:0;"><ion-icon name="camera-outline"></ion-icon></span>
+		<span style="--x:1;--y:0;--i:1;"><ion-icon name="diamond-outline"></ion-icon></span>
+		<span style="--x:0;--y:-1;--i:2;"><ion-icon name="chatbubble-outline"></ion-icon></span>
+		<span style="--x:0;--y:1;--i:3;"><ion-icon name="alarm-outline"></ion-icon></span>
+		<span style="--x:1;--y:1;--i:4;"><ion-icon name="game-controller-outline"></ion-icon></span>
+		<span style="--x:-1;--y:-1;--i:5;"><ion-icon name="moon-outline"></ion-icon></span>
+		<span style="--x:0;--y:0;--i:6;"><ion-icon name="notifications-outline"></ion-icon></span>
+		<span style="--x:-1;--y:1;--i:7;"><ion-icon name="water-outline"></ion-icon></span>
+		<span style="--x:1;--y:-1;--i:8;"><ion-icon name="time-outline"></ion-icon></span>
+	</div>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script>
+		let navigation = document.querySelector('.navigation');
+		navigation.onclick = function(){
+			navigation.classList.toggle('active')
+		}
+	</script>
+</body>
+</html>
