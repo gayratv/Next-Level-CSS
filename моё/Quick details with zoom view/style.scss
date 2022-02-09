@@ -1,0 +1,753 @@
+/*!
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap');
+$negro: #121618;
+$blanco: #fff;
+$gris: #eee;
+$primario: #47d3e6;
+$secundario: #232f3d;
+
+@mixin flex ($dir: row, $wrap: wrap, $ai: center, $jc: center, $ac: center){
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  align-items: $ai;
+  justify-content: $jc;
+  align-content: $ac;
+}
+@mixin imagen ($url: '', $size: cover, $posicion: center, $repeat: no-repeat) {
+  @if  $url != '' {
+    background-image: url($url);
+  }
+  background-size: $size;
+  background-position: $posicion;
+  background-repeat: $repeat;
+}
+@mixin ellipsisParrafo($lineas: 3){
+  -webkit-line-clamp: $lineas;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+// Media Queries
+@mixin desktop {
+  @media only screen and (max-width: 1024px){ @content; }
+}
+@mixin tablet {
+  @media only screen and (max-width: 768px){ @content; }
+}
+@mixin mobile {
+  @media only screen and (max-width: 480px){ @content; }
+}
+@mixin responsivo($medida) {
+  @media only screen and (max-width: $medida){ @content; }
+}
+
+:root{
+  --currencyPrefix: "$";
+}
+body{
+  overflow-x: hidden;
+  color: #666;
+  padding: 0;
+  margin: 0 auto;
+  *{
+    font-family: 'Inter', sans-serif;
+    @include mobile{
+      cursor: default !important;
+    }
+  }
+  p{
+    margin: 0;
+  }
+  a {
+    color: #666;
+    text-decoration: none;
+  }
+  ul, li{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+}
+
+//Keyframes para animaciones
+@keyframes anim_toCartCantidad {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  51% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+}
+@keyframes anim_favsHeart {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.2);}
+}
+//Generales
+.disabled{
+  opacity: .5;
+  cursor: not-allowed !important;
+  * {
+    pointer-events: none !important;
+  }
+}
+.component_toCartCantidad{
+  @include flex;
+  border-radius: 100px;
+  border: 1px solid $gris;
+  .toCartBoton{
+    @include flex;
+    width: 40px;
+    height: 40px;
+    color: $negro;
+    border-radius: 50%;
+    background-color: $gris;
+    position: relative;
+    cursor: pointer;
+    &.menos{
+      &:after{
+        display: none;
+      }
+    }
+    &:before, &:after{
+      content: "";
+      position: absolute;
+      width: calc(100% - 30px);
+      height: 2px;
+      background-color: currentColor;
+    }
+    &:after{
+      transform: rotate(90deg);
+    }
+  }
+  .toCartCantidad{
+    min-width: 50px;
+    font-size: 20px;
+    font-weight: 900;
+    user-select: none;
+    &.animacion{
+      animation: anim_toCartCantidad .2s;
+      &-reverse{
+        animation: anim_toCartCantidad reverse .2s;
+      }
+    }
+  }
+}
+.boton{
+  display: block;
+  padding: 10px 20px;
+  color: $blanco;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  background-color: $secundario;
+  transition: ease all .3s;
+  cursor: pointer;
+  &:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 10px 0 rgba($negro,.1);
+  }
+}
+.botonTextoIcono{
+  @include flex;
+  color: $blanco;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  background-color: $secundario;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  &:hover{
+    .labelBoton{
+      transform: translateY(-100%);
+    }
+    .icono{
+      bottom: 50%;
+      transform: translateY(50%);
+    }
+  }
+  .labelBoton{
+    margin-bottom: 0;
+    padding: 10px 20px;
+    transition: ease all .2s;
+  }
+  .icono{
+    position: absolute;
+    bottom: 0;
+    color: $blanco;
+    width: 25px;
+    height: 25px;
+    transform: translateY(100%);
+    transition: ease all .2s;
+    svg{
+      path, circle{
+        fill: none;
+        stroke-width: 4;
+        stroke: currentColor;
+        stroke-miterlimit: 10;
+      }
+    }
+  }
+}
+.botonIcono{
+  border-radius: 50px;
+  color: $secundario;
+  border: 1px solid $secundario;
+  cursor: pointer;
+  transition: ease all .3s;
+  .icono{
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    svg{
+      path, circle{
+        fill: transparent;
+        stroke-width: 2;
+        stroke: currentColor;
+        stroke-miterlimit: 10;
+        transition: ease all .3s;
+      }
+    }
+  }
+}
+
+.cards{
+  @include flex;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+  .container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    .contenedorCards{
+      @include flex;
+    }
+  }
+}
+.card{
+  width: 25%;
+  min-width: 300px;
+  .innerProd{
+    height: calc(100% - 20px);
+    margin: 10px;
+    border-radius: 5px;
+    display: block;
+    border: 1px solid $gris;
+    background-color: $blanco;
+    overflow: hidden;
+    user-select: none;
+    transition: ease all .3s;
+    &:hover{
+      box-shadow: 0 5px 10px 0 rgba($negro,.2);
+    }
+    .imgWrapper{
+      @include flex;
+      width: 100%;
+      height: 200px;
+      box-sizing: border-box;
+      background-color: $gris;
+      position: relative;
+      &:hover{
+        .imgProd{
+          transform: scale(.8);
+        }
+        .detalleRapido{
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+        }
+      }
+      .detalleRapido{
+        @include flex(column);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 90%;
+        height: 90%;
+        padding: 20px;
+        opacity: 0;
+        color: $blanco;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background-color: rgba($negro,.9);
+        box-sizing: border-box;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+        transition: ease all .3s;
+        .icono{
+          width: 35px;
+          height: 35px;
+          margin-bottom: 5px;
+          svg{
+            path, circle{
+              fill: none;
+              stroke: currentColor;
+            }
+          }
+        }
+      }
+      .imgProd{
+        @include imagen('', contain);
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        margin: 10px;
+        transition: ease all .3s;
+      }
+    }
+    .info{
+      padding: 20px 10px;
+      text-align: center;
+      display: block;
+      height: 180px;
+      box-sizing: border-box;
+      .prodName{
+        @include ellipsisParrafo(2);
+        margin: 0 auto;
+        margin-bottom: 10px;
+        color: $negro;
+        font-weight: 600;
+      }
+      .prodDesc{
+        @include ellipsisParrafo;
+        margin: 0 auto;
+        max-width: 80%;
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+      .precios{
+        @include flex($wrap: nowrap, $jc: space-between);
+        .precio{
+          font-size: 25px;
+          font-weight: 600;
+          color: $secundario;
+          &:before{
+            content: var(--currencyPrefix);
+            font-size: 18px;
+            text-transform: uppercase;
+          }
+        }
+        .stock{
+          @include flex($wrap: nowrap);
+          font-size: 14px;
+          font-weight: 600;
+          text-align: right;
+          &.out{
+            &:before{
+              background-color: red;
+            }
+          }
+          &:before{
+            content: "";
+            width: 10px;
+            height: 10px;
+            min-width: 10px;
+            margin-right: 5px;
+            border-radius: 50%;
+            background-color: green;
+          }
+        }
+        .precioOriginal{
+          color: red;
+          font-weight: 600;
+          text-align: right;
+          text-decoration: line-through;
+          &:before{
+            content: var(--currencyPrefix);
+            font-size: 14px;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .actions{
+      @include flex;
+      padding: 20px 10px;
+      .boton{
+        margin-bottom: 30px;
+        padding: 10px 20px;
+        color: $blanco;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 50px;
+        background-color: $secundario;
+        cursor: pointer;
+        transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) all .5s;
+        &:hover{
+          transform: translateY(-5px);
+          box-shadow: 0 5px 10px 0 rgba($negro,.5);
+        }
+      }
+      .row-buttons{
+        @include flex(row, nowrap, center, space-between);
+        width: 100%;
+        .checkBox{
+          @include flex;
+          position: relative;
+          cursor: pointer;
+          input{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+            &:checked{
+              ~.icon{
+                &:after{
+                  width: 80%;
+                  height: 80%;
+                }
+              }
+            }
+          }
+          .icon{
+            @include flex;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 50%;
+            border: 1px solid $secundario;
+            position: relative;
+            &:after{
+              @include flex;
+              content: "✓";
+              position: absolute;
+              width: 0;
+              height: 0;
+              color: $blanco;
+              font-size: 10px;
+              border-radius: 50%;
+              background-color: $primario;
+              transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) all .3s;
+            }
+          }
+          .checkBoxLabel{
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+          }
+        }
+        .favoritos{
+          @include flex;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          cursor: pointer;
+          &:after{
+            content: "A favoritos";
+          }
+          &.esFav{
+            &:after{
+              content: "En favoritos";
+            }
+            .icono{
+              animation: anim_favsHeart .2s linear;
+              svg{
+                path{
+                  fill: red;
+                }
+              }
+            }
+          }
+          .icono{
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            color: red;
+            svg{
+              overflow: hidden;
+              path{
+                fill: transparent;
+                stroke: currentColor;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+                transition: ease all .3s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.infoRapidaModal{
+  @include flex;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($negro,.8);
+  z-index: 1000;
+  .closeModal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  .modalContainer{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: $blanco;
+    position: relative;
+    .topContent{
+      @include flex($ai: stretch);
+      width: 100%;
+      .imagenContainer{
+        @include flex;
+        width: 50%;
+        min-height: 500px;
+        background-color: $gris;
+        box-sizing: border-box;
+        position: relative;
+        .zoomWatch{
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          width: 20px;
+          height: 20px;
+          padding: 15px;
+          border-radius: 50%;
+          color: $negro;
+          background-color: $blanco;
+          box-shadow: 0 0 10px 0 rgba($negro,.1);
+          z-index: 1;
+          cursor: pointer;
+          svg{
+            path{
+              fill: none;
+              stroke-width: 2;
+              stroke: currentColor;
+              stroke-miterlimit: 10;
+            }
+          }
+        }
+        .wrapperImg{
+          width: 100%;
+          height: 100%;
+          padding: 50px;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          .imagen{
+            @include imagen($size: contain);
+            width: 100%;
+            height: 100%;
+          }
+          .zoom_lupa{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: .5;
+            background-color: $blanco;
+            border: 1px solid rgba($negro,.2);
+            box-sizing: border-box;
+            cursor: move;
+          }
+        }
+        .zoomImg{
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 100%;
+          width: 100%;
+          height: 100%;
+          background-color: $blanco;
+          overflow: hidden;
+          z-index: 1;
+          .zoom{
+            @include imagen($size: contain);
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .texto{
+        @include flex;
+        width: 50%;
+        .wrapper{
+          @include flex(column, nowrap, center, flex-start);
+          padding: 50px 20px;
+          text-align: center;
+          max-height: 90vh;
+          overflow: auto;
+          box-sizing: border-box;
+          .actions{
+            @include flex;
+            margin: 30px auto;
+            .botonTextoIcono{
+              margin: 0 10px 0 20px;
+            }
+            .botonIcono{
+              &.esFav{
+                color: red;
+                border-color: currentColor;
+                background-color: currentColor;
+                &:hover{
+                  path, circle{
+                    fill: $blanco;
+                  }
+                }
+                path, circle{
+                  fill: $blanco;
+                }
+              }
+              &:hover{
+                path, circle{
+                  fill: red;
+                  stroke: red;
+                }
+              }
+            }
+          }
+          p{
+            font-size: 14px;
+          }
+          .bold{
+            font-weight: 600;
+          }
+          .nombre{
+            font-size: 25px;
+            font-weight: 900;
+          }
+          .precios{
+            @include flex;
+            margin: 10px auto;
+          }
+          .precio{
+            @include flex($wrap: nowrap);
+            font-size: 30px;
+            font-weight: 900;
+            color: $secundario;
+            margin-bottom: 0;
+            &:before{
+              font-size: 20px;
+              content: var(--currencyPrefix);
+            }
+          }
+          .precioOferta{
+            @extend .precio;
+            color: red;
+            font-size: 20px;
+            margin-left: 10px;
+            text-decoration: line-through;
+          }
+          .stock{
+            @include flex($wrap: nowrap);
+            margin-bottom: 5px;
+            &.out{
+              &:before{
+                background-color: red;
+              }
+            }
+            &:before{
+              content: "";
+              width: 10px;
+              height: 10px;
+              min-width: 10px;
+              margin-right: 5px;
+              border-radius: 50%;
+              background-color: green;
+            }
+          }
+          .boton{
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+  @include tablet{
+    .modalContainer{
+      .topContent{
+        .imagenContainer, .texto{
+          width: 100%;
+        }
+        .imagenContainer{
+          min-height: 250px;
+          .zoomWatch{
+            display: none;
+          }
+          .wrapperImg{
+            padding: 10px;
+          }
+          .zoomImg{
+            top: 100%;
+            left: 0;
+          }
+        }
+        .texto{
+          .wrapper{
+            max-height: calc(90vh - 250px);
+            padding: 20px;
+          }
+        }
+      }
+    }
+  }
+  @include mobile{
+    .modalContainer{
+      .topContent{
+        .imagenContainer{
+          min-height: 200px;
+        }
+        .texto{
+          .wrapper{
+            max-height: calc(90vh - 200px);
+            .nombre{
+              font-size: 20px;
+            }
+            .actions{
+              flex-direction: column;
+              width: 100%;
+              margin: 20px auto;
+              .botonTextoIcono{
+                margin: 20px auto 0 auto;
+              }
+              .botonIcono{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
