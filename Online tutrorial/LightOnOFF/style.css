@@ -1,0 +1,76 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body 
+{
+	min-height: 100vh;
+	background: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+label 
+{
+	position: relative;
+	top: -150px;
+	width: 150px;
+	height: 75px;
+	background: #212121;
+	border-radius: 10px;
+}
+input 
+{
+	appearance: none;
+}
+label span 
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 6px solid #212121;
+	border-radius: 14px;
+	width: 75px;
+	height: 75px;
+	display: block;
+	background: #333;
+	background: linear-gradient(45deg,#2a2a2a,#333);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+	cursor: pointer;
+}
+input:checked ~ span
+{
+	left: 75px;
+}
+label span ion-icon 
+{
+	color: rgba(255,255,255,0.25);
+	font-size: 2em;
+	transition: 0.5s;
+}
+input:checked ~ span ion-icon 
+{
+	color: #fff;
+	filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff) drop-shadow(0 0 15px #fff);
+}
+.bulb 
+{
+	position: absolute;
+	top: 80px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 348px;
+	height: 405px;
+	background: url(bulb_off.jpg);
+	transition: 0.5s;
+	pointer-events: none;
+}
+input:checked ~ .bulb  
+{
+	background: url(bulb_on.jpg);
+}
