@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    background: #262626;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+svg {
+    max-width: 90vw;
+    max-height: 90vh;
+}

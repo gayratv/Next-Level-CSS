@@ -1,0 +1,41 @@
+<!--
+  https://codepen.io/PointC/pen/mdqQxrO
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+
+        <clipPath id="theClipPath">
+            <circle fill="#7AC943" cx="200" cy="200" r="125" />
+        </clipPath>
+    </defs>
+
+    <path d="M200,70c34.7,0,67.4,13.5,91.9,38.1c24.6,24.6,38.1,57.2,38.1,91.9s-13.5,67.4-38.1,91.9C267.4,316.5,234.7,330,200,330
+			s-67.4-13.5-91.9-38.1C83.5,267.4,70,234.7,70,200s13.5-67.4,38.1-91.9C132.6,83.5,165.3,70,200,70 M200,50
+			c-82.8,0-150,67.2-150,150s67.2,150,150,150s150-67.2,150-150S282.8,50,200,50L200,50z" fill="white" />
+    <g clip-path="url(#theClipPath)">
+        <rect x="50" y="297.7" fill="#2E3192" width="300" height="25" />
+        <rect x="50" y="266.8" fill="#22B573" width="300" height="25" />
+        <rect x="50" y="235.9" fill="#FFFF00" width="300" height="25" />
+        <rect x="50" y="204.9" fill="#8CC63F" width="300" height="25" />
+        <rect x="50" y="174" fill="#FF7BAC" width="300" height="25" />
+        <rect x="50" y="143.1" fill="#FF1D25" width="300" height="25" />
+        <rect x="50" y="112.1" fill="#9E005D" width="300" height="25" />
+        <rect x="50" y="81.2" fill="#3FA9F5" width="300" height="25" />
+    </g>
+
+</svg>
+
+<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+<script src="prg.js"></script>
+</body>
+</html>
