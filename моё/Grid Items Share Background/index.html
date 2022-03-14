@@ -1,0 +1,81 @@
+<!--
+  https://codepen.io/mikq/pen/YzEjzPY
+
+  Реализация Grid сетки
+
+  Grid сетка с единым задним фоном. Хорошо подойдет как для галереи, так и для главного экрана твоего сайта!
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grid">
+  <div class="item-1">
+    <span>Свет</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="alt">
+    <span>Декор</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="item-1">
+    <span>Место хранения</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="item-1">
+    <span>Покрытие</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="item-1">
+    <span>CSS Grid Tricks</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="alt">
+    <span>Фурнитура</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="alt">
+    <span>Развлечение</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="">
+    <span>Аксессуары</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="alt">
+    <span>Столы</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+  <div class="item-1 alt">
+    <span>Коврики</span>
+    <span class="shop"></span>
+    <div class="overlay"></div>
+  </div>
+</div>
+
+
+<script>
+  const dates = document.querySelectorAll('.shop')
+
+  for(let i = 0; i < dates.length; i++) {
+    dates[i].innerHTML = "Магазин"
+  }
+
+
+</script>
+</body>
+</html>
