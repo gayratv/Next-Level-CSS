@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>justify-content</title>
+    <style>
+        section {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        section > div {
+            border: 1px solid #ccc;
+            width: 100px;
+            height: 100px;
+            background: repeating-radial-gradient(
+                    circle at 50% 50%,
+                    #fff,
+                    #fff 25px,
+                    #f96 25px,
+                    #f96 50px
+            );
+        }
+        .flex-start {
+            justify-content: flex-start;
+        }
+    .start {
+            justify-content: start;
+        }
+
+        .flex-start > div {
+            background: repeating-radial-gradient(
+                    circle at 50% 50%,
+                    #fff,
+                    #fff 25px,
+                    #66ff69 25px,
+                    #66a8ff 50px
+            );
+        }
+        .flex-end {
+            justify-content: flex-end;
+        }
+        .center {
+            justify-content: center;
+        }
+        .space-between {
+            justify-content: space-between;
+        }
+        .space-around {
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+<section class="flex-start">
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+<hr>
+<section class="start">
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+<hr>
+<section class="flex-end">
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+<section class="center">
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+<section class="space-between">
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+<section class="space-around">
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+</body>
+</html>

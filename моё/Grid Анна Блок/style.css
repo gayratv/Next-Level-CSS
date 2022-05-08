@@ -1,0 +1,257 @@
+/*
+ * Copyright (c) 2022. Write by Gayrat
+ */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(113.49deg, #7F3898 -30.3%, #1A2A84 84.66%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Fira Sans', sans-serif;
+
+}
+
+.container {
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+.section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 72px;
+    /* identical to box height */
+
+    text-align: center;
+}
+
+.grid-one {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows: 2fr 1fr 2fr;
+    grid-template-areas: 'music video post'
+                        'donat video hack'
+                        'donat ref hack';
+    gap: 15px;
+    margin-top: 70px;
+}
+
+.grid-one .item {
+
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.grid-one .item h3 {
+    margin-top: 0px;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.grid-one .item p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.grid-one .item a {
+    width: 100%;
+    height: 58px;
+    background: #5C8AFF;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: calc((58px - 20px) / 2 + 20px);
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.grid-one .item-music {
+    grid-area: music;
+}
+
+.grid-one .item-video {
+    grid-area: video;
+}
+
+.grid-one .item-post {
+    grid-area: post;
+}
+
+.grid-one .item-donat {
+    grid-area: donat;
+}
+
+.grid-one .item-ref {
+    grid-area: ref;
+}
+
+.grid-one .item-hack {
+    grid-area: hack;
+}
+
+.grid-two {
+    display: grid;
+    gap: 18px;
+    grid-template-columns:repeat(3, 1fr);
+    margin-top: 75px;
+}
+
+/*https://youtu.be/veOqrhvX0f8?t=2500*/
+.grid-two .item {
+    background: linear-gradient(214.02deg, #2B7FFF 6.04%, #AE7CFF 92.95%);
+    border-radius: 10px;
+    height: 251px;
+
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+
+    color: #FFFFFF;
+}
+
+.grid-two .item p {
+    margin: 0;
+    margin-left: 65px;
+    margin-top: 65px;
+}
+
+.grid-two .item-right {
+    grid-column: 2/4;
+}
+
+.grid-two .item-left {
+    grid-column: 1/3;
+}
+
+/*https://youtu.be/veOqrhvX0f8?t=3015*/
+.grid-three {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 260px 260px 200px;
+    margin-top:77px;
+}
+
+.grid-three .item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+
+}
+
+.grid-three .item p {
+    margin: 0;
+    display: block;
+    margin-left: 31px;
+    margin-top: 31px;
+
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}
+
+.blk1 {
+    grid-area: 1/1/3/2;
+}
+
+.blk2 {
+    grid-area: 1/2/2/3;
+}
+
+.blk3 {
+    grid-area: 2/2/3/3;
+}
+
+.blk4 {
+    grid-area: 3/1/4/3;
+}
+
+.blk5 {
+    grid-area: 4/1/5/3;
+}
+
+.grid-three .blk5 .btnU {
+    width: 337px;
+    height: 58px;
+    display: block;
+    background: #5C8AFF;
+    border-radius: 10px;
+
+    margin: 0 auto;
+    margin-top: 47px;
+    text-align: center;
+}
+
+.btnU a {
+
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 58px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+
+    text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+    .grid-one {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 'music video' 'post donat' 'ref hack' ;
+        grid-template-rows: repeat(3, 420px);
+
+    }
+}
+
+@media (max-width: 650px){
+    •grid-one{
+        grid-template-rows: repeat(3, 1fr);
+    }
+    •grid-one .item {
+        justify-content: flex-start;
+    }
+
+    .text {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 650px){
+    •grid-one{
+        grid-template-rows: repeat(3, 1fr);
+    }
+    •grid-one .item {
+        justify-content: flex-start;
+    }
+
+    .text {
+        margin-bottom: 50px;
+    }
+}

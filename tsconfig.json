@@ -1,0 +1,15 @@
+{
+  "compilerOptions":
+  {
+    "target": "ESNext",
+    "module": "commonjs",
+//    "module": "ESNext",
+    "esModuleInterop": true,  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "sourceMap": true,
+    "removeComments": true
+  },
+  "include": ["Typescript/**/*.ts"],
+  "exclude": ["node_modules"],
+}

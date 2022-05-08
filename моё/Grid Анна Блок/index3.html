@@ -1,0 +1,57 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 100%;
+            text-align: center;
+
+        }
+
+        #example-element {
+            border: 1px solid #c5c5c5;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 40px;
+            grid-gap: 10px;
+            width: 220px;
+        }
+        div {
+            background-color: rgba(0,0,255,.2);
+            border: 3px solid #00f;
+            font-size: 22px;
+        }
+        .font13 {
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<section id="default-example" class="default-example">
+    <div class="example-container">
+        <div id="example-element" style="grid-auto-rows: min-content;">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div class="font13">Five lorem10</div>
+            <div class="font13">Five lorem10 asdasd</div>
+            <div class="font13">Five lorem10</div>
+            <div >Five lorem10</div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
