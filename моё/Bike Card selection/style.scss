@@ -1,0 +1,617 @@
+/*!
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+$ease1: cubic-bezier(0.75, 0.885, 0.32, 1);
+$p: #4e567d;
+$r: #ff6a5e;
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  font-family: "Roboto";
+  background: lighten($p, 50%);
+  #wrap {
+    width: 800px;
+    height: 550px;
+    background: #efefef;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.25);
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    h1,
+    h2 {
+      grid-area: 4 / 10 / 5 / 15;
+      color: #000;
+      position: relative;
+      z-index: 9;
+      font-size: 28px;
+      transition: 0.4s $ease1;
+      text-align: right;
+      opacity:0.25;
+    }
+    h2 {
+      grid-area: 4 / 2 / 5 / 7;
+      text-align: left;
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    h3 {
+      position: relative;
+      z-index: 9;
+      grid-area: 10 / 11 / 11 / 12;
+      opacity: 0.25;
+      transition: 0.4s $ease1;
+    }
+    .toggle {
+      width: 30px;
+      height: 30px;
+      box-shadow: -5px 0 0 rgba(255, 255, 255, 0.15);
+      z-index: 9;
+      background: rgba(255, 255, 255, 0.05);
+      position: relative;
+      grid-area: 4 / 2 / 5 / 3;
+      transition: 0.2s ease-in-out;
+      &.expand {
+        &:before {
+          content: "IF Mode";
+          position: absolute;
+          color: #fff;
+          top: -40px;
+          width: 100px;
+          font-weight: 900;
+        }
+      }
+      i {
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &:not(.expand) {
+        margin-top: 40px;
+        box-shadow: -5px 0 0 $r;
+        i {
+          transform: translate(-50%, -50%) rotate(-90deg);
+        }
+      }
+    }
+    input {
+      cursor: pointer;
+      opacity: 0;
+    }
+    .buy {
+      grid-area: 14 / 3 / 15 / 5;
+      background: $r;
+      position: relative;
+      height: 50px;
+      left: 40px;
+      border-radius: 3px;
+      z-index: 9;
+      transition: 0.2s ease-in-out;
+      transform: translateY(200px);
+      &:not(input) {
+        pointer-events: none;
+        animation: fadein 0.2s ease-in-out 1 forwards;
+        @keyframes fadein {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        &:after {
+          content: "Buy Now";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          box-shadow: 0 0 0 1px $r;
+          border-radius: inherit;
+          right: calc(100% + 10px);
+          top: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $r;
+          cursor: pointer;
+          transition: 0.6s ease-in-out;
+          transform: translateY(200px);
+        }
+      }
+      &:before {
+        content: "Check Out";
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        animation: buynow 1s ease-in-out 1 forwards;
+        @keyframes buynow {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+            content: "Check Out";
+          }
+        }
+      }
+    }
+    input.initial {
+      position: relative;
+      grid-area: 4 / 2 / 5 / 3;
+      z-index: 999;
+      width: 30px;
+      height: 70px;
+      opacity: 0;
+      &:first-of-type {
+        &:hover {
+          & ~ .toggle.expand {
+            background: $r;
+          }
+        }
+      }
+      &:checked {
+        pointer-events: none;
+        & ~ .toggle:not(.expand) {
+          transform: translateX(-100px);
+        }
+        & ~ input[type="radio"] {
+          pointer-events: all;
+        }
+        & ~ .wheeltoggle,
+        & ~ h3, & ~ h1 {
+          filter: saturate(1);
+          opacity: 1;
+        }
+        & ~ .buy {
+          transform: translateY(0);
+          min-width: 110px;
+          transition-delay: 1s;
+          &:after {
+            transform: translateY(200px);
+          }
+          &:checked {
+            transform: translateY(-250px);
+            & ~ .toggle {
+              opacity: 0;
+            }
+            & ~ .frame {
+              .wheel {
+                .inner {
+                  animation: wheelroll6 1.25s ease-in-out 1 forwards;
+                }
+              }
+            }
+            & ~ h2 {
+              transform: translateY(0px);
+              transition-delay: 0.4s;
+              opacity: 1;
+            }
+            & ~ .wheeltoggle,
+            & ~ h1,
+            & ~ h3 {
+              transform: translateY(100px);
+              opacity: 0;
+            }
+            & ~ .wheeltoggle {
+              @for $i from 1 through 4 {
+                &:nth-of-type(#{$i}) {
+                  transition-delay: #{$i/20}s;
+                }
+              }
+            }
+            & ~ h3 {
+              transition-delay: 0.1s;
+            }
+            & ~ .buy {
+              animation: bounceback 1s ease-in-out 1 forwards;
+              &:after {
+                transition-delay: 0.3s;
+                transform: translateY(0);
+                opacity: 1;
+              }
+              &:before {
+                animation: buynow2 1s ease-in-out 1 forwards;
+
+                @keyframes buynow2 {
+                  100% {
+                    content: "Back";
+                  }
+                }
+              }
+              @keyframes bounceback {
+                0% {
+                  transform: translateY(0px);
+                }
+                50% {
+                  transform: translateY(200px);
+                }
+                50.5% {
+                  transform: translateY(200px);
+                  opacity: 0;
+                }
+                51% {
+                  transform: translateY(-200px);
+                  opacity: 0;
+                }
+                100% {
+                  transform: translateY(-250px);
+                }
+              }
+            }
+            & ~ .frame:not(.two):not(i):not(.buy) {
+              transform: scale(0.7) translateX(350px) translateY(50px);
+              transition: 0.75s $ease1;
+              transition-delay: 0.25s;
+            }
+            ~ .background {
+              &:before {
+                transition:transform 0.4s $ease1, left 0.4s $ease1 !important;
+                transition-delay:0.4s, 0.8s !important;
+                transform-origin:right;
+                transform:scaleX(2) !important;
+                left:-5%;
+              }
+              &:after {
+                transform: scaleY(1.25) translateX(-40px) !important;
+                transition-delay: 0.3s;
+              }
+            }
+          }
+          &:not(div) {
+            pointer-events: all;
+            z-index: 999;
+            &:hover ~ .buy {
+              transition-delay: 0s;
+              background: darken($r, 10%);
+            }
+          }
+        }
+      }
+    }
+
+    .wheeltoggle {
+      box-shadow: 0 0 0 1px #efefef, 0 10px 20px -20px $p;
+      border-radius: 3px;
+      transition: 0.3s ease-in-out;
+      pointer-events: none;
+      filter: saturate(0);
+      opacity: 0.5;
+      background: #fff;
+      z-index: 9;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        top: 0;
+        transition: 0.4s ease-in-out;
+      }
+      @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}) {
+          &:after {
+            content: "Wheel Type #{$i}";
+            position: absolute;
+            width: 100%;
+            top: 55px;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1.25;
+            color: $p;
+            text-transform: uppercase;
+          }
+          &:before {
+            background: url(https://assets.codepen.io/383755/wheel#{$i}.png)
+            50%
+            50% /
+              80%
+            auto
+            no-repeat;
+          }
+        }
+      }
+    }
+
+    input[type="radio"],
+    .wheeltoggle {
+      position: absolute;
+      z-index: 999;
+      width: 50px;
+      height: 90px;
+      z-index: 999;
+      pointer-events: none;
+      &.wheel1,
+      &:not(input):nth-of-type(1) {
+        grid-area: 11 / 14 / 12 / 15;
+      }
+      &.wheel2,
+      &:not(input):nth-of-type(2) {
+        grid-area: 11 / 13 / 12 / 14;
+      }
+      &.wheel3,
+      &:not(input):nth-of-type(3) {
+        grid-area: 11 / 12 / 12 / 13;
+      }
+      &.wheel4,
+      &:not(input):nth-of-type(4) {
+        grid-area: 11 / 11 / 12 / 12;
+      }
+      @for $i from 1 through 4 {
+        &.wheel#{$i} {
+          &:checked ~ .wheeltoggle {
+            &:nth-of-type(#{$i}) {
+              box-shadow: 0 0 0 1px $r, 0 10px 20px -30px $p;
+            }
+          }
+          &:hover ~ .wheeltoggle {
+            &:nth-of-type(#{$i}) {
+              box-shadow: 0 0 0 1px #efefef, 0 10px 20px -10px $p;
+              transform: scale(1.05);
+              &:before {
+                transform: rotate(180deg);
+              }
+            }
+          }
+          &:checked {
+            & ~ .frame {
+              > div.wheel {
+                animation: wheelout#{$i} 0.75s ease-in-out 1 forwards 0.25s;
+                .inner {
+                  &:before {
+                    background-image: url(https://assets.codepen.io/383755/wheel#{$i}.png);
+                    animation: wheelroll#{$i} 1s ease-in-out 1 forwards 0s;
+                    @keyframes wheelroll#{$i} {
+                      from {
+                        transform: rotate(0deg);
+                      }
+                      to {
+                        transform: rotate(720deg);
+                      }
+                    }
+                    @keyframes wheelroll6 {
+                      from {
+                        transform: rotate(0deg);
+                      }
+                      to {
+                        transform: rotate(360deg);
+                      }
+                    }
+                  }
+                }
+                &.back {
+                  animation: wheelback#{$i} 0.75s $ease1 1 forwards 0.25s;
+                  @keyframes wheelback#{$i} {
+                    0% {
+                      transform: translate(0px);
+                    }
+                    50% {
+                      transform: translateX(-700px);
+                    }
+                    100% {
+                      transform: translate(0px);
+                    }
+                  }
+                }
+                @keyframes wheelout#{$i} {
+                  0% {
+                    transform: translate(0px);
+                  }
+                  50% {
+                    transform: translateX(700px);
+                  }
+                  100% {
+                    transform: translate(0px);
+                  }
+                }
+              }
+              > div:not(.wheel) {
+                animation: jump#{$i} 0.75s $ease1 1 forwards 0.25s;
+                @keyframes jump#{$i} {
+                  0% {
+                    transform: translateY(0);
+                  }
+                  50% {
+                    transform: translateY(-75px) rotate(-2.5deg);
+                  }
+                  100% {
+                    transform: translateY(0);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &:checked {
+        & ~ .frame {
+          > div:not(.wheel) {
+            animation: jump 1s ease-in-out 1 forwards;
+          }
+        }
+      }
+    }
+    input.initial:checked {
+      & ~ .toggle {
+        box-shadow: -5px 0 0 $r;
+        &:not(.expand) {
+          box-shadow: -5px 0 0 rgba(255, 255, 255, 0.15);
+        }
+      }
+      & ~ *:not(.two):not(i):not(.buy):not(h1):not(h2):not(h3):not(.toggle) {
+        transform: rotate(0deg);
+        margin-left: 0px;
+        *:not(.two):not(i):not(.buy):not(h1):not(h2):not(h3):not(.toggle) {
+          transform: rotate(0deg);
+          margin-left: 0px;
+          &:before,
+          &:after {
+            transform: rotate(0deg);
+          }
+        }
+        &.background {
+          &:after {
+            transform: scaleY(1.25) translateX(30px);
+          }
+          &:before {
+            transition: 0.5s $ease1;
+          }
+        }
+        &.frame {
+          transform: scale(0.7) rotate(0deg) translateY(50px);
+          margin-left: -25px;
+        }
+        &:before,
+        &:after {
+          transform: rotate(0deg);
+        }
+      }
+    }
+    * {
+      transition: transform 0.3s $ease1, margin-left 0.3s $ease1;
+      &.frame {
+        transition: transform 0.6s $ease1, margin-left 0.4s $ease1;
+        transition-delay: 0.2s, 0.4s;
+      }
+      &:before,
+      &:after {
+        transition: transform 0.3s $ease1, margin-left 0.3s $ease1;
+      }
+    }
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: $p;
+      overflow: hidden;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 65%;
+        height: 100%;
+        left: 35%;
+        top: 0;
+        background: #fff;
+        z-index: 2;
+        transition: $ease1 0.5s ease-in-out;
+      }
+      &:after {
+        content: "IF Mode";
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 80%;
+        top: 10%;
+        left: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 200px;
+        font-weight: 900;
+        color: darken($p, 5%);
+        transition: 1s ease-in-out;
+        transform: scaleY(1.25);
+      }
+    }
+    .frame {
+      position: absolute;
+      top: 60px;
+      left: 85px;
+      width: 427px;
+      height: 365px;
+      z-index: 2;
+      transform-origin: 190px 210px;
+      transform: scale(0.8) rotate(-62.5deg);
+      div {
+        position: absolute;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        &.wheel {
+          &.two,
+          &.three,
+          &.four {
+            &.front {
+              transform: translateX(700px);
+              margin-left: 0px;
+            }
+            &.back {
+              transform: translateX(-700px);
+            }
+          }
+          &.front {
+            transform-origin: 273px 190px;
+            margin-left: -75px;
+            transform: rotate(115deg);
+            transition-delay: 0.5s, 0.8s;
+            z-index: 2;
+          }
+          &.back {
+            z-index: -1;
+            .inner {
+              left: -40px;
+            }
+          }
+          .inner {
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            border-radius: 100%;
+            z-index: -1;
+            top: 170px;
+            left: 300px;
+            &:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background-image: url("https://assets.codepen.io/383755/wheel1.png");
+              background-size: contain;
+              transform: rotate(360deg);
+              transition: transform 1.25s $ease1,
+              background-image 0s ease-in-out;
+              transition-delay: 0.1s, 0.5s;
+            }
+          }
+        }
+        &.rear {
+          background-image: url("https://assets.codepen.io/383755/rear.png");
+        }
+        &.stem {
+          background-image: url("https://assets.codepen.io/383755/stem.png");
+          transform-origin: 273px 190px;
+          margin-left: -105px;
+          transform: rotate(115deg);
+          transition-delay: 0.5s, 0.8s;
+        }
+        &.shaft {
+          background-image: url("https://assets.codepen.io/383755/shaft.png");
+          transform-origin: 220px 200px;
+          transform: translateX(-70px) translateY(40px);
+          transition-delay: 0.8s;
+        }
+        &.seat {
+          background-image: url("https://assets.codepen.io/383755/seat.png");
+          transform: translateY(100px) translateX(40px);
+          transition: 0.4s ease-in-out;
+          transition-delay: 0.65s;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
