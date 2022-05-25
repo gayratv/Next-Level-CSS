@@ -1,0 +1,69 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide -->
+
+<!-- группирует обработку сообщений -->
+<script>
+  function testMessageQue() {
+    const messageQueue = [];
+
+    function sendMessage(message) {
+      messageQueue.push(message);
+
+      if (messageQueue.length === 1) {
+        queueMicrotask(() => {
+          const json = JSON.stringify(messageQueue);
+          messageQueue.length = 0;
+          console.log('fetch', json);
+        });
+      }
+    };
+
+    sendMessage('msg1');
+    sendMessage('msg2');
+    sendMessage('msg3');
+  }
+</script>
+<script>
+  // console.log('testMessageQue start');
+    // testMessageQue();
+</script>
+
+<script>
+  function microtaskSequence() {
+    console.log("Before enqueueing the microtask");
+    queueMicrotask(() => {
+      console.log("The microtask has run.")
+    });
+    console.log("After enqueueing the microtask");
+  }
+  // microtaskSequence();
+</script>
+
+
+<script>
+  function timeoutVsmicrotask() {
+    console.info('timeoutVsmicrotask');
+    let callback = () => console.log("timeout callback has run");
+
+    let urgentCallback = () => console.log("queueMicrotask callback has run!");
+
+    console.log("Main program started");
+    setTimeout(callback, 0);
+    queueMicrotask(urgentCallback);
+    console.log("Main program exiting");
+  }
+  timeoutVsmicrotask();
+</script>
+</body>
+</html>

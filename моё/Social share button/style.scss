@@ -1,0 +1,111 @@
+/*!
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+$backgroundColor: #e5eef3;
+$buttonColor: #ffffff;
+$textColor: #f1ce64;
+$hoverColor: #fff;
+$facebook: #3B5998;
+$twitter: #61c5ec;
+$google: #ea4335;
+$github: #000000;
+
+body {
+  font-family: 'Roboto';
+  background-color: $backgroundColor;
+  text-align: center;
+  color: $textColor;
+  font-size: 28px;
+}
+
+a {
+  color: $textColor;
+}
+
+.share {
+  position: absolute;
+  width: 400px;
+  left: 50%;
+  margin-left: -200px;
+  top: 50%;
+  margin-top: -40px;
+  border-radius: 80px;
+
+  span {
+    width: 200px;
+    line-height: 80px;
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  nav {
+    font-size: 0;
+  }
+
+  a {
+    line-height: 80px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: $buttonColor;
+    color: $buttonColor;
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    margin: 0 -20px;
+    box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.1);
+
+    &:nth-child(1) {
+      border-top-left-radius: 40px;
+      border-bottom-left-radius: 40px;
+      margin-left: 0;
+
+      &:hover {
+        background-color: $twitter;
+      }
+    }
+
+    &:nth-child(2):hover {
+      background-color: $facebook;
+    }
+
+    &:nth-child(3):hover {
+      background-color: $google;
+    }
+
+    &:nth-child(4){
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      margin-right: 0;
+
+      &:hover {
+        background-color: $github;
+      }
+    }
+  }
+
+  &:hover, &.hover {
+    span {
+      opacity: 0;
+    }
+
+    a {
+      border-radius: 50%;
+      margin: 0 10px;
+      color: $textColor;
+      font-size: 28px;
+
+      &:hover {
+        color: $hoverColor;
+      }
+    }
+  }
+}
