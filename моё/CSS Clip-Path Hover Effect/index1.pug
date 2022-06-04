@@ -1,0 +1,11 @@
+mixin promo(text, cta, color, src)
+    .promo(style=`--overlay-color: ${color}`)
+        .image-wrapper
+            img(src=src)
+        h2.title(data-cta=cta)= text
+
++promo('Nightlife', 'Get out there →', 'hotpink', 'https://images.unsplash.com/photo-1554620121-59e7f3f6e3a4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ')
+
++promo('Quiet Time', 'Find yours →', 'yellow', 'https://images.unsplash.com/photo-1523806762236-1d3a6b7eb3fd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ')
+
++promo('Day Hikes', 'Take a walk →', 'darkgreen', 'https://images.unsplash.com/photo-1569335048491-5fb94951e885?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ')

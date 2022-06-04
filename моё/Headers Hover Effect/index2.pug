@@ -1,0 +1,40 @@
+.main-content
+    .concept.concept-one
+      - for (var i=1; i<10; i++)
+        .hover(class="hover-" + i)
+            h1 Desert
+    .concept.concept-two
+      each val, index in ['F','O','R','E','S','T']
+          .hover
+              h1= val
+    .concept.concept-three
+        .word
+          each val, index in ['C','A','N','Y','O','N']
+              .hover
+                  div
+                  div
+                  h1= val
+    .concept.concept-four
+        h1 Glacier
+    .concept.concept-five
+        h1.word
+          each val, index in ['M','O','U','N','T','A','I','N','S']
+              span.char= val
+    .concept.concept-six
+        h1.word
+          each val, index in ['O','C','E','A','N']
+              span.char= val
+    .concept.concept-seven
+        h1 fries
+    .concept.concept-eight
+        h1.word
+          each val, index in ['F','A','L','L','S']
+              div.char(data-content=val)= val
+
+footer
+    a(href="https://twitter.com/meowlivia_" target="_blank")
+        i.icon-social-twitter.icons
+    a(href="https://github.com/oliviale" target="_blank")
+        i.icon-social-github.icons
+    a(href="https://dribbble.com/oliviale" target="_blank")
+        i.icon-social-dribbble.icons
