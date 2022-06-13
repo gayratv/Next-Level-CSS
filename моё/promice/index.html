@@ -1,0 +1,26 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  const myPromise = Promise.resolve("Woah some cool data");
+  (async () => {
+    try {
+      console.log(await myPromise); // странно что он не ушел в task
+    } catch {
+      throw new Error('Oops didnt work');
+    } finally {
+      console.log("Oh finally!");
+    }
+  })();
+</script>
+</body>
+</html>
