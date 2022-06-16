@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.header {
+    height: calc(100vh + 100px);
+    background-color: peru;
+}
+
+section {
+    height: 500px;
+}
+img {
+    width: 150px;
+    height: 150px;
+}

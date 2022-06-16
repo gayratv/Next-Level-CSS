@@ -1,0 +1,67 @@
+<!--https://www.youtube.com/watch?v=ZYqBZmU-tA0-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<header class="header">
+    <h1>There is no images!</h1>
+    <h2>Scroll bottom.</h2>
+</header>
+
+<section>
+    <img
+            alt=""
+            data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png"
+    />
+</section>
+
+<section>
+    <img
+            alt=""
+            data-src="https://upload.wikimedia.org/wikipedia/commons/0/09/BEich.jpg"
+    />
+</section>
+
+<section>
+    <img
+            alt=""
+            data-src="https://upload.wikimedia.org/wikipedia/commons/7/75/Marc_Andreessen.jpg"
+    />
+</section>
+
+<script >
+  // создаем инстанс IntersectionObserver
+  const imageObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        // В момент вызова колбек проверяет, пересекается ли
+        // изображение с заданной областью
+        if (entry.isIntersecting) {
+          // источник картинки берется из data-атрибута
+          entry.target.src = entry.target.dataset.src;
+          // после чего отслеживание элемента прекращается явным образом
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      // заданная область увеличена на 50px,
+      // чтобы загрузка картинки началась до появления во viewport
+      rootMargin: "50px 0px 0px"
+    }
+  );
+
+  // Находим все картинки и начинаем их отслеживать
+  document
+    .querySelectorAll("img")
+    .forEach((image) => imageObserver.observe(image));
+</script>
+
+</body>
+</html>
