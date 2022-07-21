@@ -1,0 +1,39 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+
+<!--http://www.creative-seo.ru/blog/gsap-js-rukovodstvo-dlya-nachinayushchih/-->
+
+<div id="demo">
+    <div id="demo">
+        <div id="logo">
+            <p>GreenSock</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+
+<script>
+  window.onload = function() {
+    var logo = document.getElementById("logo"),
+      bar = document.getElementById("bar");
+    // TweenLite.to(bar, 2, {width:"692px"});
+    // TweenLite.to(logo, 2, {left:"632px", delay:1});
+
+    TweenLite.to(logo, 2, {left:"542px", backgroundColor:"black", borderBottomColor:"#90e500", color:"white"});
+  }
+</script>
+
+</body>
+</html>

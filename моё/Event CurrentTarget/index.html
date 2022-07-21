@@ -1,0 +1,37 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>currentTarget</title>
+</head>
+<body>
+
+<ul>
+    <li>li1</li>
+    <li>li2</li>
+</ul>
+
+<script>
+  // Make a list
+  const ul = document.querySelector ('ul');
+
+  function hide(evt) {
+    // evt.target refers to the clicked <li> element
+    // This is different than evt.currentTarget, which would refer to the parent <ul> in this context
+    evt.target.style.visibility = 'hidden';
+    console.log('evt.target ',evt.target);
+    console.log('evt.currentTarget ',evt.currentTarget);
+  }
+
+  // Attach the listener to the list
+  // It will fire when each <li> is clicked
+  ul.addEventListener('click', hide, false);
+
+</script>
+
+</body>
+</html>

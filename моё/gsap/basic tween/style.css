@@ -1,0 +1,25 @@
+body {
+    background-color:#000;
+}
+#demo {
+    width: 692px;
+    height: 70px;
+    background-color: #333;
+    padding: 8px;
+}
+#logo {
+    position: relative;
+    width: 150px;
+    height: 60px;
+    background: #90E500 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo_transparent_1.png) no-repeat;
+    background-position: 0px 4px;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: solid #000 10px;
+}
+#logo p {
+    font-size:17px;
+    margin-top: 0px;
+    margin-left: 60px;
+    line-height: 58px;
+}

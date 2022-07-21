@@ -1,0 +1,59 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>isolation test</title>
+    <style>
+        .a {
+            background-color: lightgreen;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 2px;
+            position: absolute;
+            top: 0;
+        }
+        #b {
+            width: 200px;
+            height: 400px;
+        }
+        .mix-blend-mode {
+            /*mix-blend-mode определяет режим смешивания цветов выбранного элемента с низлежащими слоями.*/
+            mix-blend-mode: difference;
+        }
+        #d {
+            isolation: auto;
+        }
+        #e {
+            isolation: isolate;
+        }
+       /* #e .a {
+            top: 150px;
+        }*/
+        .pos {
+            width:150px;
+            height:150px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div id="b" class="a">
+    <div id="d" class="pos">
+
+        <div class="a mix-blend-mode">auto</div>
+        Лежит сверху и перекрывает текст
+    </div>
+    <div id="e" class="pos">
+
+        <div class="a mix-blend-mode">isolate</div>
+        <p> Лежит снизу и не виден</p>
+    </div>
+</div>
+
+</body>
+</html>
