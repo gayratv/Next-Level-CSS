@@ -1,0 +1,40 @@
+<!--
+  https://javascript.plainenglish.io/8-useful-javascript-coding-techniques-that-you-should-use-f825833829e6
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Copy content to the clipboard</title>
+</head>
+<body>
+
+<div>
+    <textarea name="t1" id="t1" cols="30" rows="10">
+Данные
+    </textarea>
+    <button id="btn">Копировать</button>
+</div>
+
+<script>
+  function copyToClipboard(content) {
+
+    const textarea = document.createElement("textarea");
+
+    textarea.value = content;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("Copy");
+    textarea.remove();
+  };
+
+  function btnClick(ev) {
+    console.log(ev);
+    copyToClipboard('dddd');
+  }
+  document.getElementById('btn').addEventListener('click',btnClick)
+</script>
+
+</body>
+</html>
