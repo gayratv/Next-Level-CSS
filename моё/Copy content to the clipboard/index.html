@@ -18,22 +18,14 @@
 </div>
 
 <script>
-  function copyToClipboard(content) {
-
-    const textarea = document.createElement("textarea");
-
-    textarea.value = content;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("Copy");
-    textarea.remove();
-  };
+  const txt = document.getElementById('t1');
 
   function btnClick(ev) {
     console.log(ev);
-    copyToClipboard('dddd');
+    navigator.clipboard.writeText(txt.value);
   }
-  document.getElementById('btn').addEventListener('click',btnClick)
+
+  document.getElementById('btn').addEventListener('click', btnClick);
 </script>
 
 </body>
