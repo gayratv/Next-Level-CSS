@@ -1,0 +1,64 @@
+/*
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+body {
+    background-color: #000;
+    color:#fff;
+}
+
+#demo {
+    width: 692px;
+    height: 100px;
+    background-color: #333;
+    padding: 8px;
+}
+#demoBackground {
+    position: relative;
+    background-color: #000;
+    overflow: hidden;
+    width: 692px;
+    height: 100px;
+    visibility:hidden;
+}
+#logo {
+    position: absolute;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo_black_1.jpg) no-repeat;
+    height: 60px;
+    width: 60px;
+    top: 6px;
+}
+.sliderHolder{
+    margin-top:16px;
+    float:left;
+    width:280px;
+
+}
+.sliderHolder p{
+    margin:0px;
+    font-size:14px;
+}
+.slider {
+    width: 270px;
+    margin: 4px 0px 8px 6px;
+}
+#txtContainer {
+    position: absolute;
+    left: 65px;
+    top: 14px;
+}
+.txt {
+    font: 36px monospace;
+    position: absolute;
+    color: #afafaf;
+    font-weight: bold;
+    left: 0px;
+    top: 0;
+}
+
+input[type="button"]{
+    -webkit-appearance: button;
+    padding:5px;
+    margin-right:5px;
+    margin-bottom:5px;
+}
