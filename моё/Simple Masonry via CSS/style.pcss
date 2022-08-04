@@ -1,0 +1,77 @@
+@use postcss-custom-media;
+
+@custom-media --sm (max-width: 600px);
+@custom-media --md (min-width: 600px);
+@custom-media --lg (min-width: 1000px);
+@custom-media --xl (min-width: 1400px);
+
+@media (--small-viewport) {
+  /* styles for small viewport */
+}
+
+.gallery {
+  columns: 1;
+  column-gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media(--md) {
+  .gallery {
+    columns: 2;
+  }
+}
+
+@media(--lg) {
+  .gallery {
+    columns: 3;
+  }
+}
+
+@media(--xl) {
+  .gallery {
+    columns: 4;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+/*   margin-top: 2rem; */
+  margin-bottom: 2rem;
+}
+
+img:not(:first) {
+  margin-top: 2rem;
+}
+
+/*
+ *  Orthogonal to the main experiment. Just for presentation.
+ */
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: auto;
+  max-width: 90%;
+}
+
+@media(--md) {
+  body {
+    max-width: 560px;
+  }
+}
+
+@media(--lg) {
+  body {
+    max-width: 980px;
+  }
+}
+
+@media(--xl) {
+  body {
+    max-width: 1280px;
+  }
+}
+
