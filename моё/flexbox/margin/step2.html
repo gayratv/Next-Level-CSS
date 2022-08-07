@@ -1,0 +1,42 @@
+<!--
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>step2</title>
+</head>
+<body>
+
+</body>
+<style>
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 10px;
+        column-gap: 2em;
+        width:450px;
+        border: 3px solid black;
+    }
+
+
+    .box>* {
+        padding: 20px;
+        border: 2px solid rgb(96, 139, 168);
+        border-radius: 5px;
+        background-color: rgba(96, 139, 168, .2);
+        flex:1;
+    }
+</style>
+
+<div class="box">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+    <div>Five</div>
+    <div>Six</div>
+</div>
+</html>
