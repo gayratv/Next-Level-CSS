@@ -1,4 +1,4 @@
-@import "theme";
+//@import "theme";
 
 $optionDefaultColours: #ED5565,#FC6E51,#FFCE54,#2ECC71,#5D9CEC,#AC92EC;
 
@@ -12,10 +12,10 @@ body {
 
   font-family: 'Roboto', sans-serif;
   transition:.25s;
-  @include dark {
+ /* @include dark {
     background: #232223;
     color:white;
-  }
+  }*/
   .credit {
     position: absolute;
     bottom:20px;
