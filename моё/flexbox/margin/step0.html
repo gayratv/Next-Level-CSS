@@ -1,0 +1,37 @@
+<!--
+  ~ Copyright (c) 2022. Write by Gayrat
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>step0</title>
+</head>
+<body>
+<style>
+    .parent {
+        display: flex;
+        height: 400px;
+        background-color: #222;
+    }
+    .child {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+        /* step 1 */
+        /*margin-left: auto;*/
+        /* step 2 */
+        /*margin: auto;*/
+    /*    step 3 */
+    /*    если мы выставим margin-left и margin-top на auto, мы можем спихнуть flex-элемент в нижний правый угол родителя:*/
+        margin-left: auto;
+        margin-top: auto;
+    }
+</style>
+
+</body>
+<div class="parent">
+    <div class="child"></div>
+</div>
+</html>
