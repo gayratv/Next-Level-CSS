@@ -1,0 +1,43 @@
+<!--
+https://stackoverflow.com/questions/32551291/in-css-flexbox-why-are-there-no-justify-items-and-justify-self-properties
+Solution #2: Nested Flex Containers (no absolute positioning)
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>step3</title>
+</head>
+<body>
+
+
+<style>
+    .container {
+        display: flex;
+    }
+    .box {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+    .box71 > span { margin-right: auto; }
+    .box73 > span { margin-left: auto;  }
+
+    /* non-essential */
+    .box {
+        align-items: center;
+        border: 1px solid #ccc;
+        background-color: lightgreen;
+        height: 40px;
+    }
+</style>
+
+<div class="container">
+    <div class="box box71"><span>71 short</span></div>
+    <div class="box box72"><span>72 centered</span></div>
+    <div class="box box73"><span>73 loooooooooooooooong</span></div>
+</div>
+
+</body>
+</html>
