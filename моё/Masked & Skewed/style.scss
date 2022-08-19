@@ -1,0 +1,102 @@
+/*!
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/57225/WorkSans-VF-subset.woff2")
+  format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bild";
+  src: url("https://rwt.io/_demo_fonts/bild/BildVariableV2-VF.woff2")
+  format("woff2-variations");
+  font-stretch: 60% 100%;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: #ffffff;
+  font-family: "Work Sans", Helvetica, sans-serif;
+  font-size: calc( 1.5vw + 1rem );
+  font-weight: 525;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-family: "Bild", Helvetica, sans-serif;
+  font-stretch: 60%;
+}
+h2 {
+  color: #dadaf0;
+  font-family: "Bild", Helvetica, sans-serif;
+  font-stretch: 85%;
+}
+
+
+.title-clipped {
+  margin-left: 10vw;
+}
+.title-clipped--title {
+  background: url(IMG_8982.jpeg);
+  background-position: -12vw 3vw;
+  background-size: cover;
+  -webkit-background-clip: text;
+  //background-clip: text;
+  color: transparent;
+  font-size: calc(35.5vw + 1em);
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+  transform-origin: center left;
+  transform: perspective(20cm) rotateY(30deg);
+}
+
+.subtitle-reverse {
+  margin-top: 3rem;
+  margin-bottom: -15vw;
+  margin-left: 20vw;
+}
+.subtitle-clipped--title {
+  display: inline-block;
+  font-size: calc(8.5vw + 1em);
+  letter-spacing: -0.015em;
+  margin: 0;
+  transform: perspective(10cm) rotateY(-30deg);
+}
+
+.tagline {
+  margin-left: 50%;
+  margin-top: -28vw;
+  width: 48%;
+}
+
+.poster {
+  background-color: #dfefff;
+  border: solid 3vw #f0efef;
+  min-width: 65vw;
+  max-width: 70rem;
+  min-height: 35vw;
+  margin: 1rem auto;
+  padding-bottom: 8vw;
+  background:
+          radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.005) 55%, rgba(255, 255, 255, 0) 55%) 0 0,
+          radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em,
+          radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.01) 55%, rgba(255, 255, 255, 0) 55%) 0 0,
+          radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.075) 50%, rgba(255, 255, 255, 0.075) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em,
+          radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 55%, rgba(255, 255, 255, 0) 55%) 0 0,
+          radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em,
+          radial-gradient(rgba(#102359,.85), rgba(#043b3c,.95));
+  background-color: #dfefff;
+  background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+  background-repeat: repeat;
+}
