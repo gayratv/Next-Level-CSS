@@ -1,0 +1,73 @@
+<!--
+ https://codepen.io/Jackthomsonn/pen/pGGOyV
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Funky Nav Bar</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Funky Navbar</h1>
+    <nav>
+        <ul>
+        </ul>
+    </nav>
+</div>
+
+<script>
+  const navOptions = [{
+    label: 'Home',
+    icon: 'home'
+  }, {
+    label: 'Search',
+    icon: 'search'
+  }, {
+    label: 'Profile',
+    icon: 'person'
+  }]
+
+  const ul = document.querySelector('nav > ul')
+
+  const body = document.querySelector('body')
+
+  const setAsActiveTab = (tab, nav) => {
+    if(tab.className.split(/\s+/).indexOf("selected") !== -1) {
+      return;
+    }
+
+    body.className = nav.icon
+
+    const listElements = Array.from(ul.children)
+    listElements.forEach((li, index) => {
+      if(li.className.split(/\s+/).indexOf("selected") !== -1) {
+        li.className = 'remove'
+        setTimeout(() => {
+          li.className = ''
+        }, 1000)
+      }
+      li.innerHTML = `<i class="material-icons">${navOptions[index].icon}</i>`
+    })
+    tab.className = 'selected ' + nav.icon
+    tab.innerHTML = `<i class="material-icons">${nav.icon}</i><span>${nav.label}</span>`
+  }
+
+  navOptions.forEach(nav => {
+    let li = document.createElement('li')
+    li.innerHTML = `<i class="material-icons">${nav.icon}</i>`
+    li.addEventListener('click', function() {
+      setAsActiveTab(this, nav)
+    })
+    ul.appendChild(li)
+  })
+
+  const firstTab = document.querySelectorAll('nav > ul > li')[0]
+  setAsActiveTab(firstTab, navOptions[0])
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+/*!
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  font-family: "Nunito", sans-serif;
+  transition: all ease-in-out 800ms;
+
+  &.home {
+    background-color: rgba(220, 0, 115, 1);
+  }
+
+  &.search {
+    background-color: rgba(4, 150, 255, 1);
+  }
+
+  &.person {
+    background-color: rgba(255, 194, 23, 1);
+  }
+}
+
+.container  {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 50vh;
+
+  & > h1 {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    font-size: 48px;
+  }
+
+  nav {
+    background: #fff;
+    width: 500px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 1px 10px 50px rgba(0, 0, 0, 0.2);
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+
+      li {
+        list-style: none;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: 14px;
+        color: rgba(220, 0, 115, 1);
+        width: 100px;
+        color: rgba(0, 0, 0, 0.8);
+
+        &.selected {
+          border-radius: 40px;
+          animation: slide-in 800ms forwards;
+
+          & > span {
+            opacity: 0;
+            animation: fade-in 800ms forwards;
+            animation-delay: 200ms;
+            transform: translateX(50%);
+          }
+
+          &.home {
+            background-color: rgba(220, 0, 115, 0.2);
+
+            & > span,
+            i {
+              color: rgba(220, 0, 115, 1);
+            }
+          }
+
+          &.search {
+            background-color: rgba(4, 150, 255, 0.2);
+
+            & > span,
+            i {
+              color: rgba(4, 150, 255, 1);
+            }
+          }
+
+          &.person {
+            background-color: rgba(255, 194, 23, 0.2);
+
+            & > span,
+            i {
+              color: rgba(255, 194, 23, 1);
+            }
+          }
+        }
+
+        &.remove {
+          border-radius: 40px;
+          animation: slide-out 800ms forwards;
+
+          & > span {
+            animation: fade-out 800ms forwards;
+            animation-delay: 200ms;
+            transform: translateX(50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 130px;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    width: 130px;
+    opacity: 1;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
