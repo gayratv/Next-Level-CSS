@@ -1,0 +1,75 @@
+/*
+ * Copyright (c) 2022. Write by Gayrat
+ */
+
+main {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    --unit: calc(5.5vmin + 0px); /* Convert viewport unit to pixels for consistency in transforms */
+}
+
+section {
+    position: absolute;
+    perspective-origin: 0 0;
+    perspective: calc(var(--unit) * 12);
+    --n: 0;
+    top: calc((var(--n) - 4.5) * var(--unit) * 1.5);
+}
+
+section>div {
+    position: absolute;
+    width: var(--unit);
+    height: var(--unit);
+    left: calc(var(--unit) * -0.5);
+    top: calc(var(--unit) * -0.5);
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+section>div:nth-of-type(1) {
+    --startColor: hsla(222, 64%, 55%, 1);
+    --midColor: hsla(204, 64%, 55%, 1);
+    --endColor: hsla(150, 64%, 55%, 1);
+    animation-delay: calc(var(--n) * -0.2s);
+}
+section>div:nth-of-type(2) {
+    --startColor: hsla(10, 100%, 55%, 1);
+    --midColor: hsla(21, 100%, 55%, 1);
+    --endColor: hsla(55, 100%, 55%, 1);
+    animation-delay: calc(var(--n) * -0.2s - 1s);
+}
+
+section:nth-of-type(1) { --n: 0; }
+section:nth-of-type(2) { --n: 1; }
+section:nth-of-type(3) { --n: 2; }
+section:nth-of-type(4) { --n: 3; }
+section:nth-of-type(5) { --n: 4; }
+section:nth-of-type(6) { --n: 5; }
+section:nth-of-type(7) { --n: 6; }
+section:nth-of-type(8) { --n: 7; }
+section:nth-of-type(9) { --n: 8; }
+section:nth-of-type(10) { --n: 9; }
+
+@keyframes spin {
+    0% { transform: rotateY(0) translate3d(calc(var(--unit) * 2.5), 0, 0) rotateY(0); z-index: 0; background-color: var(--midColor); }
+    25% { z-index: 20; background-color: var(--startColor); }
+    75% { z-index: -20; background-color: var(--endColor); }
+    100% { transform: rotateY(-360deg) translate3d(calc(var(--unit) * 2.5), 0, 0) rotateY(360deg); z-index: 0; background-color: var(--midColor); }
+}
+
+/*
+
+section>div {
+    transform: rotateY(0) translate3d(calc(var(--unit) * 2.5), 0, 0) rotateY(0); z-index: 0; background-color: var(--midColor);
+}
+
+section>div {
+    z-index: 20; background-color: var(--startColor);
+}
+section>div {
+    z-index: -20; background-color: var(--endColor);
+}
+section>div {
+    transform: rotateY(-360deg) translate3d(calc(var(--unit) * 2.5), 0, 0) rotateY(360deg); z-index: 0; background-color: var(--midColor);
+}
+*/
