@@ -32,7 +32,7 @@ body {
   background-color: #fff;
   box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
   padding: 0.75rem;
-  border-radius: 99px; // just a high number to create pill effect
+  border-radius: 90px; // just a high number to create pill effect
   * {
     z-index: 2;
   }
@@ -50,7 +50,7 @@ input[type="radio"] {
   width: 200px;
   font-size: 1.25rem;
   font-weight: 500;
-  border-radius: 99px; // just a high number to create pill effect
+  //border-radius: 599px; // just a high number to create pill effect
   cursor: pointer;
   transition: color 0.15s ease-in;
 }
@@ -110,7 +110,7 @@ input[id="radio-3"] {
   width: 200px;
   background-color: var(--secondary-color);
   z-index: 1;
-  border-radius: 99px; // just a high number to create pill effect
+  border-radius: 299px; // just a high number to create pill effect
   transition: 0.25s ease-out;
 }
 
