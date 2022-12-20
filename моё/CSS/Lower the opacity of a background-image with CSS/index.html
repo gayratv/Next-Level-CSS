@@ -1,0 +1,55 @@
+<!--
+  https://www.youtube.com/watch?v=lRPguPbovro
+  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Lower the opacity of a background-image with CSS</title>
+
+    <style>
+        .low-apcity-bg-image {
+            /*
+            background-image: url("gettyimages-1401909091-2048x2048.jpg");
+            background-size: cover;
+            background-position: center;
+            */
+            display: grid;
+            place-content: center;
+            text-align: center;
+            min-height:500px;
+            position: relative;
+            /*isolation:isolate;*/
+
+        }
+        .low-apcity-bg-image:after {
+            content:'';
+            position: absolute;
+            z-index:-1;
+            inset:0;
+            /*background: pink;*/
+            opacity: 0.2;
+
+            background-image: url("gettyimages-1401909091-2048x2048.jpg");
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        body{
+            font-family:system-ui;
+            font-size:1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="low-apcity-bg-image">
+    <h1>Background image </h1>
+    <p>It's possiblre</p>
+</div>
+</body>
+</html>

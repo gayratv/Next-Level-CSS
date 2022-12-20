@@ -21,7 +21,7 @@ body {
   padding: var(--gap);
   height: 100vh;
   position: relative;
-  background: #080b11;
+  background: hsl(220deg, 35%, 5%);
   display: -ms-grid;
   -ms-grid-columns: 1fr [4];
 }
@@ -72,13 +72,13 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.8));
+  background: linear-gradient(180deg, hsla(0deg, 0%, 0%, 0) 5%, hsla(0deg, 0%, 0%, 0.8));
   backdrop-filter: blur(6px);
   transition-property: opacity;
   transition-duration: 0.4s;
   transition-timing-function: ease-out;
   z-index: -1;
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.8));
+  background: -webkit-linear-gradient(top, hsla(0deg, 0%, 0%, 0) 5%, hsla(0deg, 0%, 0%, 0.8));
   -webkit-backdrop-filter: blur(6px);
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 0.4s;
