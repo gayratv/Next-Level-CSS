@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shape</title>
+</head>
+<body>
+
+<div>
+    <p>https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Shapes/Overview_of_CSS_Shapes</p>
+</div>
+
+<style>
+    .shape {
+        background-color: rebeccapurple;
+        height: 150px;
+        width: 150px;
+        padding: 20px;
+        margin: 20px;
+        float: left;
+    }
+
+    /*.shape1 {
+        border-radius: 50%;
+        shape-outside: margin-box;
+    }*/
+
+   /* .shape1 {
+        shape-outside: circle(50%) margin-box;
+    }*/
+    .shape {
+        float: left;
+        shape-outside: inset(20px 10px round 10px);
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+
+
+
+    .box {
+        max-width: 400px;
+    }
+    .box p {
+        padding-left: 20px;
+    }
+</style>
+
+
+<div class="box">
+    <div class="shape shape1"></div>
+    <p>One November night in the year 1782, so the story runs, two brothers sat over their winter fire in the little
+        French town of Annonay, watching the grey smoke-wreaths from the hearth curl up the wide chimney. Their names
+        were Stephen and Joseph Montgolfier, they were papermakers by trade, and were noted as possessing thoughtful
+        minds and a deep interest in all scientific knowledge and new discovery. Before that night—a memorable night, as
+        it was to prove—hundreds of millions of people had watched the rising smoke-wreaths of their fires without
+        drawing any special inspiration from the fact.</p>
+</div>
+
+</body>
+</html>
