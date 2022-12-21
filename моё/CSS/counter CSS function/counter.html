@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>counter css function</title>
+
+    <style>
+        .double-list {
+            counter-reset: count -1;
+        }
+
+        .double-list li {
+            counter-increment: count 2;
+        }
+
+        .double-list li::marker {
+            content: counter(count, decimal) ') ';
+        }
+
+    </style>
+
+    <style>
+        .double-list2 {
+            counter-reset: count -1;
+        }
+
+        .double-list2 li {
+            counter-increment: count 2;
+        }
+
+        .double-list2 li::marker {
+            content: counter(count, decimal) ') ';
+        }
+
+    </style>
+
+    <style>
+        .double-list1 {
+           counter-reset: cnt1 -1;
+        }
+        .double-list1 li {
+            counter-increment:cnt1 +2;
+        }
+        .double-list1 li::marker {
+            content: counter(cnt1, decimal) '-> ';
+        }
+    </style>
+</head>
+<body>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/counter">https://developer.mozilla.org/en-US/docs/Web/CSS/counter</a>
+
+<p>Best Dynamic Duos in Sports:</p>
+<ol class="double-list">
+    <li>Stephen Curry + Klay Thompson</li>
+    <li>Aaron Judge + Giancarlo Stanton</li>
+    <li>Michael Phelps + Ryan Lochte</li>
+    <li>LeBron James + Dwyane Wade</li>
+    <li>Xavi Hernandez + Andres Iniesta</li>
+</ol>
+
+<p>double-list1</p>
+<ol class="double-list1">
+    <li>Stephen Curry + Klay Thompson</li>
+    <li>Aaron Judge + Giancarlo Stanton</li>
+    <li>Michael Phelps + Ryan Lochte</li>
+    <li>LeBron James + Dwyane Wade</li>
+    <li>Xavi Hernandez + Andres Iniesta</li>
+</ol>
+
+<p>Best Dynamic Duos in Sports:</p>
+<ol class="double-list2">
+    <li>Stephen Curry + Klay Thompson</li>
+    <li>Aaron Judge + Giancarlo Stanton</li>
+    <li>Michael Phelps + Ryan Lochte</li>
+    <li>LeBron James + Dwyane Wade</li>
+    <li>Xavi Hernandez + Andres Iniesta</li>
+</ol>
+</body>
+</html>
