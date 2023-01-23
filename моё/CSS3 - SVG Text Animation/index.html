@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- https://codepen.io/rikhnovets/pen/gOzjqzJ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 - SVG Text Animation</title>
+    <link   rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="animation-container">
+    <svg viewBox="0 205 600 600">
+        <symbol id="text">
+            <text text-anchor="middle" x="50%" y="50%">АНИМИРУЙ</text>
+        </symbol>
+        <use xlink:href="#text" class="text"></use>
+        <use xlink:href="#text" class="text"></use>
+        <use xlink:href="#text" class="text"></use>
+        <use xlink:href="#text" class="text"></use>
+    </svg>
+</div>
+</body>
+</html>
