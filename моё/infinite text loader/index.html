@@ -3,9 +3,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodePen Home         infinite text loader</title>
+    <title>CodePen Home infinite text loader</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="t" data-circletext="loading loading loading "></div>
+<!--<div class="t" data-circletext="loa"></div>-->
+<!--<div class="t" data-circletext="loa">-->
+<!--    <i style="&#45;&#45;i: 0"><b>l</b></i>-->
+<!--    <i style="&#45;&#45;i: 0.3333333333333333"><b>o</b></i>-->
+<!--    <i style="&#45;&#45;i: 0.6666666666666666"><b>a</b></i>-->
+</div>
+
+<script>
+  const $el = document.querySelector('[data-circletext]');
+  const text = $el.dataset.circletext;
+  const chars = text.split('');
+  const length = chars.length;
+  const html = chars.map((char, i) => `<i style="--i: ${i / length}"><b>${char}</b></i>`).join('');
+  $el.innerHTML = html;
+</script>
 
 </body>
 </html>

@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Plex Sans VF";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/57225/IBMPlexSansVar-Roman.woff2")
+  format("woff2-variations");
+  font-weight: 100 700;
+  font-stretch: 85% 100%;
+  font-display: swap;
+}
+
+:root {
+  font-family: "Plex Sans VF", Arial, sans-serif;
+}
+
+.t {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  //border: 10px solid black;
+
+  --t: 2.5s;
+  --r: 8.5rem;
+}
+
+.t i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(calc(var(--i) * 360deg)) translateY(calc(-1 * var(--r))) rotate(calc(var(--i) * -360deg));
+}
+.t b {
+  display: block;
+  animation: show var(--t) infinite forwards ease-in-out;
+  animation-delay: calc((-1 * var(--t)) * (1 - var(--i)));
+}
+
+@keyframes show {
+  0% {
+    font-weight: 100;
+    opacity: 0;
+    //transform: translateY(-500%) scale(.5);
+  }
+  20% {
+    font-weight: 900;
+    opacity: 1;
+    //transform: translateY(0%) scale(1);
+  }
+  90% {
+    font-weight: 200;
+    opacity: 1;
+    //transform: translateY(0) scale(1);
+  }
+  100% {
+    font-weight: 100;
+    opacity: 0;
+    transform: translateY(500%) scale(.5);
+  }
+}
