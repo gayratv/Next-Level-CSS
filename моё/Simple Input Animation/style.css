@@ -1,0 +1,91 @@
+:root {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.form {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    min-width: 288px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form input {
+    outline: none;
+}
+
+.form input[type=text],
+.form input[type=password]{
+    padding: 1rem;
+    padding-bottom: 0.6rem;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid #000;
+    font-family: 'Poppins';
+    transition: border 0.3s ease;
+}
+
+.form input[type=submit],
+.form button {
+    width: 60%;
+}
+
+.label {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form input:focus + .label,
+.form input:not(:placeholder-shown) + .label {
+    top: -0.2rem;
+    color: #be0027;
+    font-size: 0.8rem;
+}
+
+.form input:focus {
+    border-bottom: 3px solid #be0027;
+}
+
+.btn {
+    padding: 0.6rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+.btn-submit {
+    color: #FFF;
+    background-color: #be0027;
+}

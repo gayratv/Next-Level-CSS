@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Input Animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+</body>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<h1 class="title">Login Form</h1>
+
+<form class="form" action="#">
+  <!--     Important to set the placeholder to " " (space) -->
+  <div class="form-field">
+    <input type="text" placeholder=" ">
+    <span class="label">Name</span>
+  </div>
+
+  <div class="form-field">
+    <input type="password" placeholder=" " autofill="off">
+    <span class="label" autofill="off">Password</span>
+  </div>
+
+  <div class="form-field">
+    <input class="btn btn-submit" type="submit" value="Log In">
+  </div>
+</form>
+
+<script>
+  let submitBtn = document.querySelector('.btn.btn-submit');
+
+  // submitBtn.addEventListener('click', event => event.preventDefault());
+</script>
+</body>
+</html>
