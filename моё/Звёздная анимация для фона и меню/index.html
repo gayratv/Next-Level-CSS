@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- https://codepen.io/Pawlox62/pen/ZEWdEYy -->
+<html lang="pl-PL">
+<head>
+  <meta charset="utf-8">
+  <title>Kosmos</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+</head>
+<body>
+
+<div id="bg"></div>
+<div class="menu">
+  <div class="backg"></div>
+  <ul>
+    <a href="#bg"><li>Strona główna</li></a>
+    <a href="#gwiazdy"><li>Gwiazdy</li></a>
+    <a href="#planety"><li>Planety</li></a>
+    <a href="#galaktyki"><li>Galaktyki</li></a>
+  </ul>
+</div>
+
+<button class="r-menu" onclick="openNav();">&#9776;</button>
+<div class="sidenav">
+  <ol>
+    <a href="#bg"><li>Strona główna</li></a>
+    <a href="#gwiazdy"><li>Gwiazdy</li></a>
+    <a href="#planety"><li>Planety</li></a>
+    <a href="#galaktyki"><li>Galaktyki</li></a>
+  </ol>
+</div>
+
+<div class="sky-container">
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+</div>
+
+<section id="gwiazdy">
+  <h1>Gwiazdy</h1>
+  <div class="article"></div>
+</section>
+
+<section id="planety">
+  <h1>Planety</h1>
+  <div class="article"></div>
+</section>
+
+<section id="galaktyki">
+  <h1>Galaktyki</h1>
+  <div class="article"></div>
+</section>
+
+<script type="text/javascript">
+  const menu = document.querySelector('.r-menu');
+  const menuRect = menu.getBoundingClientRect().top;
+  const height = document.querySelector('#bg').offsetHeight - menu.offsetHeight;
+  window.addEventListener(('scroll'), () => {
+    if (window.scrollY >= height) {
+      menu.classList.add('r-menu-animation');
+    } else {
+      menu.classList.remove('r-menu-animation');
+      document.querySelector('.sidenav').style.width = "0";
+      document.querySelector('.r-menu-onclick').style.marginRight = "0px";
+    }
+  })
+
+  function openNav() {
+    document.querySelector('.sidenav').style.width = "250px";
+    document.querySelector('.r-menu').classList.add('r-menu-onclick');
+    document.querySelector('.r-menu-onclick').style.marginRight = "250px";
+  }
+
+  function closeNav() {
+    document.querySelector('.sidenav').style.width = "0";
+    document.querySelector('.r-menu').classList.remove('r-menu-onclick');
+  }
+</script>
+
+</body>
+</html>

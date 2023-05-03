@@ -1,0 +1,286 @@
+*
+{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body
+{
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #eee;
+    font-size: 22px;
+}
+
+a
+{
+    text-decoration: none;
+    color: #eee;
+    list-style-type: none;
+}
+
+#bg
+{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(125deg, #00103a 0%, #3e5f77 100%);
+}
+
+h1
+{
+    letter-spacing: 5px;
+    font-weight: 300;
+    text-align: center;
+    padding: 30px;
+}
+
+.article
+{
+    width: 80%;
+    margin: 0 auto;
+    height: 80%;
+    object-fit: cover;
+}
+
+#gwiazdy
+{
+    position: absolute;
+    top: 100vh;
+    height: 100vh;
+    width: 100%;
+    color: #333;
+    display: block;
+}
+
+#planety
+{
+    position: absolute;
+    top: 200vh;
+    height: 100vh;
+    width: 100%;
+    color: #eee;
+    background-color: #333;
+    display: block;
+}
+
+#galaktyki
+{
+    position: absolute;
+    top: 300vh;
+    height: 100vh;
+    width: 100%;
+    color: #eee;
+    background-color: #456;
+    display: block;
+}
+
+.menu
+{
+    z-index: 999;
+    width: 100vw;
+    transition: background-color .3s ease-in-out;
+    text-shadow: black 1px 1px 2px;
+}
+
+.r-menu
+{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    background-color: #5f91ff;
+    top: 50px;
+    right: 50px;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease-in-out, margin-right .3s ease-in-out;
+    color: #eee;
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+}
+
+.r-menu:focus
+{
+    outline: none;
+}
+
+.r-menu:hover
+{
+    background-color: #6fa2ff;
+}
+
+.r-menu-animation
+{
+    visibility: visible;
+    opacity: 1;
+}
+
+.r-menu-onclick
+{
+    margin-right: 250px;
+    opacity: 1;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #222;
+    overflow-x: hidden;
+    transition: 0.3s ease-in-out;
+    padding-top: 60px;
+    line-height: 220%;
+}
+
+ul
+{
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+ul > a > li
+{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+ul > a > li:hover
+{
+    cursor: pointer;
+    color: #5f91ff;
+}
+
+ol > a > li:hover
+{
+    cursor: pointer;
+    color: #5f91ff;
+}
+
+.sky-container {
+    width: 100vh;
+    height: 100vh;
+    transform: rotateZ(45deg);
+    position: absolute;
+    z-index: 960;
+}
+
+
+.star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 1px;
+    background: linear-gradient(-45deg, #5f91ff, rgba(0, 0, 255, 0));
+    filter: drop-shadow(0 0 5px #2557bb);
+    animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+}
+
+.star::before, .star::after {
+    position: absolute;
+    content: '';
+    top: calc(100% - 1px);
+    right: 0;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5f91ff, rgba(0, 0, 255, 0));
+    border-radius: 100%;
+    transform: translateX(50%) rotateZ(45deg);
+    animation: shining 3000ms ease-in-out infinite;
+}
+
+.star::after {
+    transform: translateX(50%) rotateZ(-45deg);
+}
+
+.star:nth-child(1) {
+    top: calc(40% - 100px);
+    left: calc(80% - 300px);
+    animation-delay: 1650ms;
+}
+.star:nth-child(1)::before, .star:nth-child(1)::after {
+    animation-delay: 1650ms;
+}
+
+.star:nth-child(2) {
+    top: calc(60% - -50px);
+    left: calc(60% - 190px);
+    animation-delay: 350ms;
+}
+.star:nth-child(2)::before, .star:nth-child(2)::after {
+    animation-delay: 350ms;
+}
+
+.star:nth-child(3) {
+    top: calc(45% - -90px);
+    left: calc(30% - 200px);
+    animation-delay: 400ms;
+}
+.star:nth-child(3)::before, .star:nth-child(3)::after {
+    animation-delay: 4 00ms;
+}
+
+.star:nth-child(4) {
+    top: calc(70% - 50px);
+    left: calc(30% - 250px);
+    animation-delay: 4700ms;
+}
+.star:nth-child(4)::before, .star:nth-child(4)::after {
+    animation-delay: 4700ms;
+}
+
+.star:nth-child(5) {
+    top: calc(75% - -190px);
+    left: calc(16% - 200px);
+    animation-delay: 2100ms;
+}
+.star:nth-child(5)::before, .star:nth-child(5)::after {
+    animation-delay: 2100ms;
+}
+
+
+
+/* Animations */
+@keyframes tail {
+    0% {
+        width: 0;
+    }
+
+    30% {
+        width: 100px;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes shining {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 30px;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes shooting {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(320px);
+    }
+}
