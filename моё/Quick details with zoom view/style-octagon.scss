@@ -1,0 +1,55 @@
+$dim: 40vmin;
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  perspective: 20em;
+}
+
+div, :before {
+  position: absolute;
+  width: $dim; height: $dim;
+}
+
+.card {
+  top: 50%; left: 50%;
+  margin: -.5*$dim;
+  transform-style: preserve-3d;
+  text-align: center;
+  font: calc(1em + 10vmin)/#{$dim}
+  trebuchet ms, verdana, arial, sans-serif;
+  // calc() in shorthand doesn't work in Firefox :(
+  // bug 1304014
+  font-size: calc(1em + 10vmin);
+  line-height: $dim;
+  font-family: trebuchet ms, verdana, arial, sans-serif;
+  animation: rot 4s ease-in-out infinite;
+}
+
+@keyframes rot {
+  50% { transform: rotateY(.5turn); }
+  100% { transform: rotateY(1turn); }
+}
+
+.face {
+  overflow: hidden;
+  transform: rotate(45deg);
+  backface-visibility: hidden;
+
+  &:before {
+    left: 0;
+    transform: rotate(-45deg);
+    background: #ee8c25;
+    content: 'front';
+  }
+
+  &:last-child {
+    transform: rotateY(.5turn) rotate(45deg);
+
+    &:before {
+      background: greenyellow;
+      content: 'back'
+    }
+  }
+}
