@@ -1,0 +1,52 @@
+body {
+    --btn-color: #edd41a;
+    --bg-color: #000;
+    padding: 15px;
+    margin: 0;
+    display: grid;
+    background-color: var(--bg-color);
+}
+
+.link-container {
+    display: grid;
+    min-width: 700px;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+}
+.link-container a {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 10px;
+    color: var(--btn-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s linear;
+    letter-spacing: 4px;
+    overflow: hidden;
+}
+.link-container a.link2:before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, var(--btn-color));
+    transition: left 0.5s linear;
+}
+.link-container a.link2:hover:before {
+    /*background: linear-gradient(270deg, var(--btn-color), transparent);*/
+    background: linear-gradient(90deg, transparent, var(--btn-color));
+    left: 100%;
+}
+
+.bgView {
+    width: 500px;
+    height: 100px;
+    background: linear-gradient(270deg, transparent, #0d948b);;
+}
