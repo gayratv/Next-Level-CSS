@@ -1,0 +1,50 @@
+$dim: 40vmin;
+$cpv1: polygon(100% 50%, 0 0, 0 100%);
+$cpv2: polygon(0 50%, 100% 0, 100% 100%);
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  perspective: 20em;
+}
+
+div, :before {
+  position: absolute;
+  width: $dim; height: $dim;
+}
+
+.card {
+  top: 50%; left: 50%;
+  margin: -.5*$dim;
+  transform-style: preserve-3d;
+  font: calc(1em + 10vmin)/#{$dim}
+  trebuchet ms, verdana, arial, sans-serif;
+  // calc() in shorthand doesn't work in Firefox :(
+  // bug 1304014
+  font-size: calc(1em + 10vmin);
+  line-height: $dim;
+  font-family: trebuchet ms, verdana, arial, sans-serif;
+  animation: rot 4s ease-in-out infinite;
+}
+
+@keyframes rot {
+  50% { transform: rotateY(.5turn); }
+  100% { transform: rotateY(1turn); }
+}
+
+.face {
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-clip-path: $cpv1;
+  clip-path: $cpv1;
+  background: #ee8c25;
+
+  &:last-child {
+    transform: rotateY(.5turn);
+    -webkit-clip-path: $cpv2;
+    clip-path: $cpv2;
+    background: #d14730;
+    text-align: right;
+  }
+}
