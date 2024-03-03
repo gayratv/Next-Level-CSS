@@ -1,0 +1,277 @@
+.about {
+  $cubic: cubic-bezier(0.64, 0.01, 0.07, 1.65);
+  $transition: 0.6s $cubic;
+  $size: 40px;
+  position: fixed;
+  z-index: 10;
+  bottom: 10px;
+  right: 10px;
+  width: $size;
+  height: $size;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  transition: all 0.2s ease;
+
+  .bg_links {
+    width: $size;
+    height: $size;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(#000000, 0.2);
+    border-radius: 100%;
+    backdrop-filter: blur(5px);
+    position: absolute;
+  }
+
+  .logo {
+    width: $size;
+    height: $size;
+    z-index: 9;
+    background-image: url(https://rafaelalucas91.github.io/assets/codepen/logo_white.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 10px 7px;
+    opacity: 0.9;
+    transition: all 1s 0.2s ease;
+    bottom: 0;
+    right: 0;
+  }
+
+  .social {
+    opacity: 0;
+    right: 0;
+    bottom: 0;
+
+    .icon {
+      width: 100%;
+      height: 100%;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: transparent;
+      display: flex;
+      transition: all 0.2s ease, background-color 0.4s ease;
+      opacity: 0;
+      border-radius: 100%;
+    }
+
+    &.portfolio {
+      transition: all 0.8s ease;
+
+      .icon {
+        background-image: url(https://rafaelalucas91.github.io/assets/codepen/link.svg);
+      }
+    }
+
+    &.dribbble {
+      transition: all 0.3s ease;
+      .icon {
+        background-image: url(https://rafaelalucas91.github.io/assets/codepen/dribbble.svg);
+      }
+    }
+
+    &.linkedin {
+      transition: all 0.8s ease;
+      .icon {
+        background-image: url(https://rafaelalucas91.github.io/assets/codepen/linkedin.svg);
+      }
+    }
+  }
+
+  &:hover {
+    width: 105px;
+    height: 105px;
+    transition: all $transition;
+
+    .logo {
+      opacity: 1;
+      transition: all 0.6s ease;
+    }
+
+    .social {
+      opacity: 1;
+
+      .icon {
+        opacity: 0.9;
+      }
+
+      &:hover {
+        background-size: 28px;
+        .icon {
+          background-size: 65%;
+          opacity: 1;
+        }
+      }
+
+      &.portfolio {
+        right: 0;
+        bottom: calc(100% - 40px);
+        transition: all 0.3s 0s $cubic;
+        .icon {
+          &:hover {
+            background-color: #698fb7;
+          }
+        }
+      }
+
+      &.dribbble {
+        bottom: 45%;
+        right: 45%;
+        transition: all 0.3s 0.15s $cubic;
+        .icon {
+          &:hover {
+            background-color: #ea4c89;
+          }
+        }
+      }
+
+      &.linkedin {
+        bottom: 0;
+        right: calc(100% - 40px);
+        transition: all 0.3s 0.25s $cubic;
+        .icon {
+          &:hover {
+            background-color: #0077b5;
+          }
+        }
+      }
+    }
+  }
+}
+
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #f5f7fa, #c3cfe2);
+  color: #333;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards {
+  position: absolute;
+  border-radius: 5px;
+  border: solid 3px transparent;
+}
+
+.card1 {
+  background-image: linear-gradient(45deg, #27BBCE, #6E2EC9);
+  animation: card1 6s 0s ease infinite;
+}
+
+.card2 {
+  background-image: linear-gradient(45deg, #D1E02C, #23E0B1);
+  animation: card2 6s 0s ease infinite;
+  transform: translate3d(-120px, 0px, 0px);
+}
+
+.card3 {
+  background-image: linear-gradient(45deg, #AB22B7, #F2C530);
+  animation: card3 6s 0s ease infinite;
+  transform: translate3d(120px, 0px, 0px);
+}
+
+@keyframes card1 {
+  0%, 100% {
+    transform: translate3d(0px, 0px, 0px);
+    width: 120px;
+    height: 120px;
+    z-index: 1;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  33% {
+    transform: translate3d(120px, 0px, 0px);
+    width: 80px;
+    height: 80px;
+    z-index: 1;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  66% {
+    transform: translate3d(-120px, 0px, 0px);
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes card2 {
+  0%, 100% {
+    transform: translate3d(-120px, 0px, 0px);
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  33% {
+    transform: translate3d(0px, 0px, 0px);
+    width: 120px;
+    height: 120px;
+    z-index: 1;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  66% {
+    transform: translate3d(120px, 0px, 0px);
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes card3 {
+  0%, 100% {
+    transform: translate3d(120px, 0px, 0px);
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  33% {
+    transform: translate3d(-120px, 0px, 0px);
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  66% {
+    transform: translate3d(0px, 0px, 0px);
+    width: 120px;
+    height: 120px;
+    z-index: 1;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  }
+}
